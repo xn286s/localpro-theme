@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Section - Guide
- * Slug: localpro/section-guide
- * Categories: about
+ * Title: Guide
+ * Slug: localpro/guide
+ * Categories: localpro, guide
  */
 ?>
 

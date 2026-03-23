@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Section - Reviews
- * Slug: localpro/section-reviews
- * Categories: testimonials, call-to-action
+ * Title: Reviews
+ * Slug: localpro/reviews
+ * Categories: localpro, reviews
  */
 ?>
 

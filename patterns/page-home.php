@@ -1,13 +1,15 @@
 <?php
 /**
- * Title: Page Template - Home
- * Slug: localpro/page-template-home
- * Categories:
+ * Title: Page - Home
+ * Slug: localpro/page-home
+ * Categories: localpro, page
  */
+
+$bg_image = THEME_DIR_URI . '/assets/images/localpro-placeholder-landscape.webp';
 ?>
 
-<!-- wp:cover {"url":"/wp-content/themes/localpro/assets/images/localpro-placeholder-landscape.webp","id":889,"hasParallax":true,"dimRatio":50,"overlayColor":"contrast","isUserOverlayColor":true,"minHeightUnit":"px","tagName":"section","sizeSlug":"full","metadata":{"name":"Hero","patternName":"core/block/890"},"layout":{"type":"constrained"}} -->
-<section class="wp-block-cover has-parallax"><div class="wp-block-cover__image-background wp-image-889 size-full has-parallax" style="background-position:50% 50%;background-image:url(/wp-content/themes/localpro/assets/images/localpro-placeholder-landscape.webp)"></div><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
+<!-- wp:cover {"url":"<?= $bg_image ?>","id":889,"hasParallax":true,"dimRatio":50,"overlayColor":"contrast","isUserOverlayColor":true,"minHeightUnit":"px","tagName":"section","sizeSlug":"full","metadata":{"name":"Hero","patternName":"core/block/890"},"layout":{"type":"constrained"}} -->
+<section class="wp-block-cover has-parallax"><div class="wp-block-cover__image-background wp-image-889 size-full has-parallax" style="background-position:50% 50%;background-image:url(<?= $bg_image ?>)"></div><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"layout":{"type":"constrained"}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"center","level":1} -->
 <h1 class="wp-block-heading has-text-align-center">We Are the Best Plumber in Citrus Springs, FL</h1>

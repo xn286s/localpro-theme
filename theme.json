@@ -7,6 +7,10 @@
                 "service"
             ],
             "title": "Service"
+        },
+        {
+            "name": "blank",
+            "title": "Blank"
         }
     ],
     "settings": {

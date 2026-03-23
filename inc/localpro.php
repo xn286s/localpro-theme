@@ -3,8 +3,6 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-require_once THEME_DIR . '/inc/theme-settings.php';
-
 class LocalProTheme {
 
     private static $instance = null;
@@ -14,11 +12,17 @@ class LocalProTheme {
         add_action('after_setup_theme', [$this, 'after_setup_theme']);
         add_action('wp_enqueue_scripts', [$this, 'wp_enqueue_scripts']);
         add_action('init', [$this, 'init']);
-        // add_action('after_switch_theme', [$this, 'install_companion_plugin']);
         
         // Filters
         add_filter('should_load_remote_block_patterns', '__return_false');
-        add_filter('show_admin_bar', '__return_false');
+        // add_filter('show_admin_bar', '__return_false');
+    }
+
+    public static function get_instance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
     }
 
     public function after_setup_theme() {
@@ -28,8 +32,7 @@ class LocalProTheme {
     }
 
     public function init() {
-        $this->register_post_types();
-        // $this->install_companion_plugin(); // Also run on every load to catch manual theme re-installs
+        $this->register_pattern_categories();
     }
 
     public function wp_enqueue_scripts() {
@@ -40,55 +43,28 @@ class LocalProTheme {
         wp_enqueue_style('dashicons');
     }
 
-    public function register_post_types() {
-        $options = get_option('localpro_theme_options');
-        
-        // Check if the setting is checked and equals '1'
-        if (isset($options['enable_service_post_type']) && $options['enable_service_post_type'] === '1') {
-            register_post_type('service', [
-                'labels' => [
-                    'name'          => __('Services', TEXT_DOMAIN),
-                    'singular_name' => __('Service', TEXT_DOMAIN),
-                ],
-                'public'       => true,
-                'has_archive'  => true,
-                'supports'     => ['title', 'editor', 'thumbnail', 'excerpt'],
-                'show_in_rest' => true, // Enables Gutenberg editor support
-                'menu_icon'    => 'dashicons-hammer',
-                'rewrite'      => ['slug' => 'services'],
-            ]);
-        }
-    }
+    public function register_pattern_categories() {
+        $categories = [
+            'localpro',
+            'hero',
+            'stakes',
+            'value-stack',
+            'services',
+            'guide',
+            'plan',
+            'one-column',
+            'two-column',
+            'three-column',
+            'page'
+        ];
 
-    public function install_companion_plugin() {
-        $plugin_path = 'localpro-companion/localpro-companion.php';
-        
-        // Check if the plugin is already active
-        if (is_plugin_active($plugin_path)) {
-            return;
+        foreach($categories as $category) {
+            register_block_pattern_category($category, [
+                'label' => __( ucfirst($category), TEXT_DOMAIN ),
+                'description' => __( ucfirst($category) . ' patterns', TEXT_DOMAIN ),
+            ]
+            );
         }
-        
-        // Check if the plugin file exists in the theme
-        $plugin_file = THEME_DIR . '/' . $plugin_path;
-        
-        if (file_exists($plugin_file)) {
-            // Activate the plugin
-            $result = activate_plugin($plugin_path);
-            
-            if (is_wp_error($result)) {
-                // Show an error message if activation fails
-                add_action('admin_notices', function() use ($result) {
-                    echo '<div class="notice notice-error"><p>' . __('LocalPro Companion plugin could not be activated. Please activate it manually.', TEXT_DOMAIN) . '</p></div>';
-                });
-            }
-        }
-    }
-
-    public static function get_instance() {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-        return self::$instance;
     }
 
 }

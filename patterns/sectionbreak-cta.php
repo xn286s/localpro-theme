@@ -1,8 +1,8 @@
 <?php
 /**
  * Title: Section Break - Call to Action
- * Slug: localpro/section-break-cta
- * Categories: call-to-action
+ * Slug: localpro/sectionbreak-cta
+ * Categories: localpro, section-break, call-to-action
  */
 ?>
 

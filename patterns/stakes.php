@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Section - Stakes
- * Slug: localpro/section-stakes
- * Categories: call-to-action, columns, featured, testimonials
+ * Title: Stakes
+ * Slug: localpro/stakes
+ * Categories: localpro, stakes
  */
 ?>
 

@@ -1,13 +1,15 @@
 <?php
 /**
- * Title: Section - Value Proposition
- * Slug: localpro/section-value-proposition
- * Categories: columns, call-to-action
+ * Title: Value Stack
+ * Slug: localpro/value-stack
+ * Categories: localpro, three-column
  */
+
+$bg_image = THEME_DIR_URI . '/assets/images/localpro-placeholder-landscape.webp';
 ?>
 
-<!-- wp:cover {"url":"/wp-content/themes/localpro/assets/images/localpro-placeholder-landscape.webp","id":886,"hasParallax":true,"dimRatio":50,"overlayColor":"contrast","isUserOverlayColor":true,"tagName":"section","sizeSlug":"full","metadata":{"name":"Value Proposition"},"style":{"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem"}}},"layout":{"type":"constrained"}} -->
-<section class="wp-block-cover has-parallax" style="padding-top:2.5rem;padding-bottom:2.5rem"><div class="wp-block-cover__image-background wp-image-886 size-full has-parallax" style="background-position:50% 50%;background-image:url(/wp-content/themes/localpro/assets/images/localpro-placeholder-landscape.webp)"></div><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
+<!-- wp:cover {"url":"<?= $bg_image; ?>","hasParallax":true,"dimRatio":50,"overlayColor":"contrast","isUserOverlayColor":true,"tagName":"section","sizeSlug":"full","metadata":{"name":"Value Stack"},"style":{"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem"}}},"layout":{"type":"constrained"}} -->
+<section class="wp-block-cover has-parallax" style="padding-top:2.5rem;padding-bottom:2.5rem"><div class="wp-block-cover__image-background size-full has-parallax" style="background-position:50% 50%;background-image:url(<?= $bg_image; ?>)"></div><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"layout":{"type":"constrained"}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"center"} -->
 <h2 class="wp-block-heading has-text-align-center">Why Homeowners in [City] Choose Us</h2>

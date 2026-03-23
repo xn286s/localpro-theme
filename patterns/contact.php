@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Section - Contact
- * Slug: localpro/section-contact
- * Categories: contact
+ * Title: Contact
+ * Slug: localpro/contact
+ * Categories: localpro, contact
  */
 ?>
 

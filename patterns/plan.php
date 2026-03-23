@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Section - Plan
- * Slug: localpro/section-plan
- * Categories: columns, call-to-action
+ * Title: Plan
+ * Slug: localpro/plan
+ * Categories: localpro, plan
  */
 ?>
 

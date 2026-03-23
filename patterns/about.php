@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Page Template - About
- * Slug: localpro/page-template-about
- * Categories: about
+ * Title: About
+ * Slug: localpro/about
+ * Categories: localpro, about
  */
 ?>
 

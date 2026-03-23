@@ -1,8 +1,8 @@
 <?php
 /**
  * Title: Section Break - Logo
- * Slug: localpro/section-break-logo
- * Categories: banner
+ * Slug: localpro/sectionbreak-logo
+ * Categories: localpro, section-break, banner
  */
 ?>
 
