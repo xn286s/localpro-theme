@@ -5,8 +5,7 @@ import { PanelBody } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import IconPicker from './icon-picker';
 
-import './style.scss';
-import './editor.scss';
+import './editor.css';
 
 /**
  * Add custom attributes to core/list.

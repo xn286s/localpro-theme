@@ -75,3 +75,101 @@ html {
     width: -moz-fit-content;
     width: fit-content;
 }
+
+/* ========================================================================== */
+
+/* Material List */
+
+/* ========================================================================== */
+
+ul.localpro-list--material-icon,
+ol.localpro-list--material-icon {
+    list-style: none !important;
+}
+
+ul.localpro-list--material-icon>li,
+ol.localpro-list--material-icon>li {
+    position: relative;
+    padding-right: 0;
+    list-style: none !important;
+    display: flex;
+    align-items: center;
+}
+
+ul.localpro-list--material-icon>li::before,
+ol.localpro-list--material-icon>li::before {
+    content: var(--localpro-marker-icon, "circle");
+    margin-left: 0.5em;
+    font-family: "Material Icons" !important;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.1em;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: rtl;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: var(--localpro-marker-color, currentColor);
+}
+
+/* Marker color override for default list styles (no icon selected) */
+
+.localpro-list--has-marker-color:not(.localpro-list--material-icon)>li::marker {
+    color: var(--localpro-marker-color, currentColor);
+}
+
+/* ========================================================================== */
+
+/* Scroll Reveal Animation */
+
+/* ========================================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 600ms ease, transform 600ms ease;
+    will-change: opacity, transform;
+}
+
+/* When visible */
+
+.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Optional: slight delay variants */
+
+.delay-1 {
+    transition-delay: 200ms;
+}
+
+.delay-2 {
+    transition-delay: 400ms;
+}
+
+.delay-3 {
+    transition-delay: 600ms;
+}
+
+.delay-4 {
+    transition-delay: 800ms;
+}
+
+/* Respect reduced-motion users */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

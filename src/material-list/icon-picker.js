@@ -1,16 +1,7 @@
-import {
-    TextControl,
-    Button,
-    Tooltip,
-    SelectControl,
-} from '@wordpress/components';
+import { TextControl, Button, Tooltip, SelectControl } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import {
-    ALL_MATERIAL_ICONS,
-    MATERIAL_ICON_CATEGORIES,
-    CATEGORY_NAMES,
-} from './icon-data';
+import { ALL_MATERIAL_ICONS, MATERIAL_ICON_CATEGORIES, CATEGORY_NAMES } from './icon-data';
 
 export default function IconPicker({ value, onChange }) {
     const [search, setSearch] = useState('');

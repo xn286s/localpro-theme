@@ -7,6 +7,8 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		...defaultConfig.entry(),
-		'index': path.resolve(process.cwd(), 'src/index.js')
+		'index': path.resolve(process.cwd(), 'src/index.js'),
+		'scroll-reveal/index': path.resolve(process.cwd(), 'src/scroll-reveal/index.js'),
+		'material-list/index': path.resolve(process.cwd(), 'src/material-list/index.js')
 	}
 };

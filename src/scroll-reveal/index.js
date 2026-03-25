@@ -4,8 +4,6 @@ const { InspectorControls } = wp.blockEditor;
 const { PanelBody, ToggleControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 
-import './style.css';
-
 const DELAY_OPTIONS = [
     { label: 'None', value: '0' },
     { label: '200ms', value: '1' },
