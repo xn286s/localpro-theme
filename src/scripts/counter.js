@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    // Counter animation
     const counters = document.querySelectorAll(".counter");
+    if (!counters.length) return;
 
     if (!("IntersectionObserver" in window)) {
         // fallback — just run immediately
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    const observer = new IntersectionObserver((entries, obs) => {
+    const counterObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 startCounter(entry.target);
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         threshold: 0.4 // triggers when 40% visible
     });
 
-    counters.forEach(counter => observer.observe(counter));
+    counters.forEach(counter => counterObserver.observe(counter));
 
     function startCounter(counter) {
         const target = +counter.getAttribute("data-target");
@@ -48,26 +47,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
         requestAnimationFrame(update);
     }
-
-    // Entry Animations
-    const reveal = document.querySelectorAll(".reveal");
-
-    if (!("IntersectionObserver" in window)) {
-        reveal.forEach(el => el.classList.add("is-visible"));
-        return;
-    }
-
-    const revealObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                obs.unobserve(entry.target); // run once
-            }
-        });
-    }, {
-        threshold: 0.15,
-        rootMargin: "0px 0px -10% 0px" // triggers slightly before fully in view
-    });
-
-    reveal.forEach(el => revealObserver.observe(el));
 });

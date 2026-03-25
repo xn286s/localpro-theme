@@ -146,16 +146,22 @@
                 "spacing": {
                     "blockGap": "1.25rem",
                     "padding": {
-                        "bottom": "1.25rem",
-                        "left": "1.25rem",
-                        "right": "1.25rem",
-                        "top": "1.25rem"
+                        "bottom": "0.5rem",
+                        "left": "0.5rem",
+                        "right": "0.5rem",
+                        "top": "0.5rem"
                     }
                 }
             },
             "core/columns": {
                 "spacing": {
-                    "blockGap": "1.25rem"
+                    "blockGap": "1.25rem",
+                    "padding": {
+                        "bottom": "0.5rem",
+                        "left": "0.5rem",
+                        "right": "0.5rem",
+                        "top": "0.5rem"
+                    }
                 }
             },
             "core/cover": {
@@ -179,12 +185,19 @@
                 }
             },
             "core/heading": {
-                "css": "width: min(100%, 50ch)",
                 "typography": {
                     "fontFamily": "var(--wp--preset--font-family--display)",
                     "fontWeight": "700",
                     "lineHeight": "1"
                 }
+            },
+            "core/list": {
+                "spacing": {
+                    "padding": {
+                        "left": "1rem"
+                    }
+                },
+                "css": "width: fit-content"
             },
             "core/navigation": {
                 "spacing": {
@@ -260,12 +273,12 @@
                 "color": {
                     "text": "var(--wp--preset--color--contrast)"
                 },
-                "css": "width: min(100%, 50ch)",
                 "typography": {
                     "fontFamily": "var(--wp--preset--font-family--display)",
                     "fontWeight": "700",
                     "lineHeight": "1"
-                }
+                },
+                "css": "width: min(100%, 55ch)"
             },
             "h1": {
                 "typography": {
