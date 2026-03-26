@@ -16,30 +16,15 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-wrap: break-word;
+    /* font-size: 62.5%; */
 }
 
-.localpro.fluentform {
-    background-color: var(--wp--preset--color--contrast) !important;
-    border: 2px solid var(--wp--preset--color--surface);
-    border-radius: 0.5rem;
-    box-shadow: 0 0 8px -4px #000000;
-    color: var(--wp--preset--color--surface);
-    padding: 1.25rem;
+.lead-form {
+    margin-top: -25%;
 }
 
-.fluentform .ff-btn-submit {
-    background-color: var(--wp--preset--color--primary);
-    border-radius: 5rem;
-    box-shadow: 0 0 8px -4px #000000;
-    color: var(--wp--preset--color--surface);
-    padding: 0.75rem 1.5rem;
-}
-
-.localpro.lead-form {
-    margin-top: -128px;
-}
-
-.localpro.preheading {
+.preheading {
     color: var(--wp--preset--color--primary);
     font-size: var(--wp--preset--font-size--label);
     font-weight: 500;
@@ -47,34 +32,38 @@ html {
     text-transform: uppercase;
 }
 
-.localpro.glass-dark {
+.glass-dark {
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.localpro.glass-light {
+.glass-light {
     backdrop-filter: blur(8px);
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.localpro.text-primary {
+.text-primary {
     color: var(--wp--preset--color--primary);
 }
 
-.localpro.sticky {
+.is-sticky {
     position: sticky;
     top: 0;
 }
 
-.localpro.fit {
+.fit {
+    width: -moz-fit-content;
     width: fit-content;
 }
 
 /* ========================================================================== */
+
 /* Material List */
+
 /* ========================================================================== */
+
 ul.localpro-list--material-icon,
 ol.localpro-list--material-icon {
     list-style: none !important;
@@ -96,7 +85,7 @@ ol.localpro-list--material-icon>li::before {
     font-family: "Material Icons" !important;
     font-weight: normal;
     font-style: normal;
-    font-size: 1.1em;
+    font-size: 1.25em;
     line-height: 1;
     letter-spacing: normal;
     text-transform: none;
@@ -113,13 +102,17 @@ ol.localpro-list--material-icon>li::before {
 }
 
 /* Marker color override for default list styles (no icon selected) */
+
 .localpro-list--has-marker-color:not(.localpro-list--material-icon)>li::marker {
     color: var(--localpro-marker-color, currentColor);
 }
 
 /* ========================================================================== */
+
 /* Scroll Reveal Animation */
+
 /* ========================================================================== */
+
 .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -128,12 +121,14 @@ ol.localpro-list--material-icon>li::before {
 }
 
 /* When visible */
+
 .is-visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
 
 /* Optional: slight delay variants */
+
 .delay-1 {
     transition-delay: 200ms;
 }
@@ -151,6 +146,7 @@ ol.localpro-list--material-icon>li::before {
 }
 
 /* Respect reduced-motion users */
+
 @media (prefers-reduced-motion: reduce) {
 
     .reveal {
@@ -159,3 +155,5 @@ ol.localpro-list--material-icon>li::before {
         transition: none;
     }
 }
+
+/*# sourceMappingURL=style-index.css.map*/

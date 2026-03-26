@@ -1,5 +1,4 @@
-import './main.css';
-// import './scripts/observer';
+import './style.css';
 
 document.addEventListener("DOMContentLoaded", function () {
 

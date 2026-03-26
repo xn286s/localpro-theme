@@ -1,14 +1,10 @@
-const defaultConfig = require('@wordpress/scripts/config/webpack.config.js');
-const { getWebpackEntryPoints } = require('@wordpress/scripts/utils/config');
-
-const path = require('path');
+const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
 module.exports = {
-	...defaultConfig,
-	entry: {
-		...defaultConfig.entry(),
-		'index': path.resolve(process.cwd(), 'src/index.js'),
-		'scroll-reveal/index': path.resolve(process.cwd(), 'src/scroll-reveal/index.js'),
-		'material-list/index': path.resolve(process.cwd(), 'src/material-list/index.js')
-	}
+    ...defaultConfig,
+    mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+    entry: {
+        'editor/index': './src/editor/index.js',
+        'frontend/index': './src/index.js',
+    },
 };

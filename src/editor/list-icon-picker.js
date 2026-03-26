@@ -1,26 +1,29 @@
 import { TextControl, Button, Tooltip, SelectControl } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { ALL_MATERIAL_ICONS, MATERIAL_ICON_CATEGORIES, CATEGORY_NAMES } from './icon-data';
+import ICONS from './icons.json';
+
+const ICON_CATEGORIES = Object.keys(ICONS);
+const ALL_ICONS = Object.values(ICONS).flat();
 
 export default function IconPicker({ value, onChange }) {
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
 
     const categoryOptions = [
-        { label: __('All Categories', 'localpro-custom-list-block'), value: '' },
-        ...CATEGORY_NAMES.map((cat) => ({ label: cat, value: cat })),
+        { label: __('All Categories', 'localpro-list'), value: '' },
+        ...ICON_CATEGORIES.map((cat) => ({ label: cat, value: cat })),
     ];
 
     let filtered;
     if (search) {
-        filtered = ALL_MATERIAL_ICONS.filter((icon) =>
+        filtered = ALL_ICONS.filter((icon) =>
             icon.toLowerCase().includes(search.toLowerCase())
         );
     } else if (category) {
-        filtered = MATERIAL_ICON_CATEGORIES[category] || [];
+        filtered = ICONS[category] || [];
     } else {
-        filtered = ALL_MATERIAL_ICONS;
+        filtered = ALL_ICONS;
     }
 
     return (
@@ -28,7 +31,7 @@ export default function IconPicker({ value, onChange }) {
             <TextControl
                 placeholder={__(
                     'Search icons\u2026',
-                    'localpro-custom-list-block'
+                    'localpro-list'
                 )}
                 value={search}
                 onChange={(val) => {
@@ -53,8 +56,8 @@ export default function IconPicker({ value, onChange }) {
             <div className="localpro-icon-picker__count">
                 {filtered.length}{' '}
                 {filtered.length === 1
-                    ? __('icon', 'localpro-custom-list-block')
-                    : __('icons', 'localpro-custom-list-block')}
+                    ? __('icon', 'localpro-list')
+                    : __('icons', 'localpro-list')}
             </div>
             <div className="localpro-icon-picker__grid">
                 {filtered.map((icon) => (
@@ -75,13 +78,13 @@ export default function IconPicker({ value, onChange }) {
             </div>
             {filtered.length === 0 && (
                 <p className="localpro-icon-picker__empty">
-                    {__('No icons found.', 'localpro-custom-list-block')}
+                    {__('No icons found.', 'localpro-list')}
                 </p>
             )}
             {value && (
                 <div className="localpro-icon-picker__current">
                     <span className="localpro-icon-picker__label">
-                        {__('Selected:', 'localpro-custom-list-block')}
+                        {__('Selected:', 'localpro-list')}
                     </span>
                     <span className="material-icons">{value}</span>
                     <span className="localpro-icon-picker__name">
@@ -93,7 +96,7 @@ export default function IconPicker({ value, onChange }) {
                         variant="tertiary"
                         onClick={() => onChange('')}
                     >
-                        {__('Clear', 'localpro-custom-list-block')}
+                        {__('Clear', 'localpro-list')}
                     </Button>
                 </div>
             )}
