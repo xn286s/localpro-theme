@@ -8,8 +8,8 @@
             <!-- /wp:paragraph -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"}} -->
-            <div class="wp-block-group" style="padding-top:0;padding-bottom:0">
-                <!-- wp:site-logo {"width":256,"className":"reveal"} /--></div>
+            <div class="wp-block-group" style="padding-top:0;padding-bottom:0"><!-- wp:site-logo {"width":256} /-->
+            </div>
             <!-- /wp:group -->
 
             <!-- wp:paragraph {"align":"left"} -->
@@ -18,7 +18,7 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"layout":{"type":"constrained"}} -->
+        <!-- wp:column {"layout":{"type":"constrained","justifyContent":"left"}} -->
         <div class="wp-block-column">
             <!-- wp:paragraph {"align":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"label"} -->
             <p class="has-text-align-left has-label-font-size" style="font-style:normal;font-weight:700">Contact Us
@@ -35,8 +35,10 @@
             <p class="has-text-align-left" style="font-style:normal;font-weight:700">Business Hours</p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:list {"className":"reveal","style":{"spacing":{"margin":{"top":"0px"}}}} -->
-            <ul style="margin-top:0px" class="wp-block-list reveal"><!-- wp:list-item -->
+            <!-- wp:list {"className":"material-list-icon localpro-list\u002d\u002dmaterial-icon localpro-list\u002d\u002dmaterial-icon","style":{"spacing":{"margin":{"top":"0px"}}},"selectedIcon":"schedule"} -->
+            <ul style="margin-top:0px;--localpro-marker-icon:&quot;schedule&quot;"
+                class="wp-block-list material-list-icon localpro-list--material-icon core-list--material-icon">
+                <!-- wp:list-item -->
                 <li>Monday: Open 24 Hours</li>
                 <!-- /wp:list-item -->
 
@@ -68,15 +70,17 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"layout":{"type":"constrained","justifyContent":"center"}} -->
+        <!-- wp:column {"layout":{"type":"constrained","justifyContent":"left"}} -->
         <div class="wp-block-column">
             <!-- wp:paragraph {"align":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"label"} -->
             <p class="has-text-align-left has-label-font-size" style="font-style:normal;font-weight:700">Service Area
             </p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:list {"className":"reveal"} -->
-            <ul class="wp-block-list reveal"><!-- wp:list-item -->
+            <!-- wp:list {"className":"material-list-icon localpro-list\u002d\u002dmaterial-icon localpro-list\u002d\u002dmaterial-icon","selectedIcon":"map"} -->
+            <ul style="--localpro-marker-icon:&quot;map&quot;"
+                class="wp-block-list material-list-icon localpro-list--material-icon core-list--material-icon">
+                <!-- wp:list-item -->
                 <li>List</li>
                 <!-- /wp:list-item -->
 
@@ -134,7 +138,7 @@
         style="border-top-color:var(--wp--preset--color--shade);border-top-width:1px;margin-top:2.5rem">
         <!-- wp:column {"verticalAlignment":"bottom","layout":{"type":"constrained","justifyContent":"left"}} -->
         <div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"fontSize":"small"} -->
-            <p class="has-small-font-size">©20XX [Business Name]. All rights reserved.</p>
+            <p class="has-small-font-size">©20XX [Company Name]. All rights reserved.</p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->

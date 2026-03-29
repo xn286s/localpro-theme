@@ -1,4 +1,3 @@
-import './attributes';
-import './controls';
-import './save';
-import './style.css';
+import './list';
+import './reveal';
+import './sticky';

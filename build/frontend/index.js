@@ -1,2 +1,139 @@
-(()=>{"use strict";var e,t={171(){document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".reveal");if(!e.length)return;if(!("IntersectionObserver"in window))return void e.forEach(e=>e.classList.add("is-visible"));const t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add("is-visible"),t.unobserve(e.target))})},{threshold:.1,rootMargin:"0px 0px -40px 0px"});e.forEach(e=>t.observe(e));const r=document.querySelectorAll(".counter");if(!r.length)return;if(!("IntersectionObserver"in window))return void r.forEach(o);const n=new IntersectionObserver((e,t)=>{e.forEach(e=>{e.isIntersecting&&(o(e.target),t.unobserve(e.target))})},{threshold:.4});function o(e){const t=+e.getAttribute("data-target"),r=performance.now();requestAnimationFrame(function n(o){const i=o-r,a=Math.min(i/1600,1),s=(c=a,1-Math.pow(1-c,3));var c;const l=Math.floor(t*s);e.textContent=l.toLocaleString(),a<1?requestAnimationFrame(n):e.textContent=t.toLocaleString()})}r.forEach(e=>n.observe(e))})}},r={};function n(e){var o=r[e];if(void 0!==o)return o.exports;var i=r[e]={exports:{}};return t[e](i,i.exports,n),i.exports}n.m=t,e=[],n.O=(t,r,o,i)=>{if(!r){var a=1/0;for(v=0;v<e.length;v++){for(var[r,o,i]=e[v],s=!0,c=0;c<r.length;c++)(!1&i||a>=i)&&Object.keys(n.O).every(e=>n.O[e](r[c]))?r.splice(c--,1):(s=!1,i<a&&(a=i));if(s){e.splice(v--,1);var l=o();void 0!==l&&(t=l)}}return t}i=i||0;for(var v=e.length;v>0&&e[v-1][2]>i;v--)e[v]=e[v-1];e[v]=[r,o,i]},n.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={854:0,490:0};n.O.j=t=>0===e[t];var t=(t,r)=>{var o,i,[a,s,c]=r,l=0;if(a.some(t=>0!==e[t])){for(o in s)n.o(s,o)&&(n.m[o]=s[o]);if(c)var v=c(n)}for(t&&t(r);l<a.length;l++)i=a[l],n.o(e,i)&&e[i]&&e[i][0](),e[i]=0;return n.O(v)},r=globalThis.webpackChunklocalpro=globalThis.webpackChunklocalpro||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})();var o=n.O(void 0,[490],()=>n(171));o=n.O(o)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/frontend/index.scss"
+/*!*********************************!*\
+  !*** ./src/frontend/index.scss ***!
+  \*********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+/*!*******************************!*\
+  !*** ./src/frontend/index.js ***!
+  \*******************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/frontend/index.scss");
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  if (!("IntersectionObserver" in window)) {
+    // fallback — just run immediately
+    reveals.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const scrollRevealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        scrollRevealObserver.unobserve(entry.target); // animate once
+      }
+    });
+  }, {
+    threshold: 0.1,
+    // trigger when 10% visible
+    rootMargin: '0px 0px -40px 0px' // slight bottom offset
+  });
+  reveals.forEach(el => scrollRevealObserver.observe(el));
+
+  // Counter
+  const counters = document.querySelectorAll(".counter");
+  if (!counters.length) return;
+  if (!("IntersectionObserver" in window)) {
+    // fallback — just run immediately
+    counters.forEach(startCounter);
+    return;
+  }
+  const counterObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounter(entry.target);
+        obs.unobserve(entry.target); // run once
+      }
+    });
+  }, {
+    threshold: 0.4 // triggers when 40% visible
+  });
+  counters.forEach(counter => counterObserver.observe(counter));
+  function startCounter(counter) {
+    const target = +counter.getAttribute("data-target");
+    const duration = 1600;
+    const startTime = performance.now();
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(progress);
+      const current = Math.floor(target * eased);
+      counter.textContent = current.toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target.toLocaleString();
+      }
+    }
+    requestAnimationFrame(update);
+  }
+});
+})();
+
+/******/ })()
+;
 //# sourceMappingURL=index.js.map

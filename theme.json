@@ -97,7 +97,7 @@
                 {
                     "name": "Small",
                     "slug": "small",
-                    "size": "0.8rem"
+                    "size": "0.875rem"
                 },
                 {
                     "name": "Base",
@@ -107,22 +107,22 @@
                 {
                     "name": "Label",
                     "slug": "label",
-                    "size": "clamp(1.125rem, 0.208vw + 1.083rem, 1.25rem)"
+                    "size": "1.25rem"
                 },
                 {
                     "name": "Subheading",
                     "slug": "subheading",
-                    "size": "clamp(1.25rem, 0.417vw + 1.167rem, 1.5rem)"
+                    "size": "calc(clamp(1.75rem, 0.833vw + 1.583rem, 2.25rem))"
                 },
                 {
                     "name": "Heading",
                     "slug": "heading",
-                    "size": "clamp(1.75rem, 0.417vw + 1.667rem, 2rem)"
+                    "size": "calc(clamp(2.25rem, 0.833vw + 2.083rem, 2.75rem))"
                 },
                 {
                     "name": "Title",
                     "slug": "title",
-                    "size": "clamp(2.5rem, 0.833vw + 2.333rem, 3rem)"
+                    "size": "calc(clamp(2rem, 1.667vw + 1.667rem, 3rem))"
                 }
             ]
         },
@@ -184,6 +184,7 @@
                 }
             },
             "core/heading": {
+                "css": "max-width: min(100%, 55ch)",
                 "elements": {
                     "h1": {
                         "typography": {
@@ -218,6 +219,7 @@
                 },
                 "typography": {
                     "fontFamily": "var(--wp--preset--font-family--display)",
+                    "fontWeight": "400",
                     "lineHeight": "1"
                 }
             },
@@ -240,7 +242,7 @@
                 }
             },
             "core/paragraph": {
-                "css": "width: min(100%, 55ch)"
+                "css": "max-width: min(100%, 55ch)"
             },
             "core/post-template": {
                 "spacing": {
@@ -273,7 +275,7 @@
                     "background": "var(--wp--preset--color--primary)",
                     "text": "var(--wp--preset--color--surface)"
                 },
-                "css": "transition: all 0.3s ease",
+                "css": "transition: border-color 300ms ease, color 300ms ease, background-color 300ms ease",
                 "shadow": "0 0 8px -4px #000000",
                 "spacing": {
                     "padding": {
@@ -297,8 +299,7 @@
                 "typography": {
                     "fontFamily": "var(--wp--preset--font-family--display)",
                     "lineHeight": "1"
-                },
-                "css": "width: min(100%, 55ch)"
+                }
             }
         },
         "spacing": {
