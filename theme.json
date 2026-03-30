@@ -91,38 +91,64 @@
                     "fontFamily": "Montserrat, sans-serif",
                     "name": "Body",
                     "slug": "body"
+                },
+                {
+                    "fontFamily": "Material Symbols Outlined",
+                    "name": "Icons",
+                    "slug": "icons",
+                    "fontFace": [
+                        {
+                            "fontFamily": "Material Symbols Outlined",
+                            "fontStyle": "normal",
+                            "fontWeight": 400,
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/MaterialSymbolsOutlined.woff2",
+                                "file:./assets/fonts/MaterialSymbolsOutlined.ttf"
+                            ]
+                        }
+                    ]
                 }
             ],
             "fontSizes": [
                 {
                     "name": "Small",
                     "slug": "small",
-                    "size": "0.875rem"
+                    "size": "1.2rem"
                 },
                 {
                     "name": "Base",
                     "slug": "base",
-                    "size": "1rem"
+                    "size": "1.6rem"
                 },
                 {
                     "name": "Label",
                     "slug": "label",
-                    "size": "1.25rem"
+                    "size": "2rem"
                 },
                 {
                     "name": "Subheading",
                     "slug": "subheading",
-                    "size": "calc(clamp(1.75rem, 0.833vw + 1.583rem, 2.25rem))"
+                    "fluid": {
+                        "min": "2.4rem",
+                        "max": "3.2rem"
+                    }
                 },
                 {
                     "name": "Heading",
                     "slug": "heading",
-                    "size": "calc(clamp(2.25rem, 0.833vw + 2.083rem, 2.75rem))"
+                    "fluid": {
+                        "min": "3.2rem",
+                        "max": "4rem"
+                    }
                 },
                 {
                     "name": "Title",
                     "slug": "title",
-                    "size": "calc(clamp(2rem, 1.667vw + 1.667rem, 3rem))"
+                    "fluid": {
+                        "min": "4rem",
+                        "max": "4.8rem"
+                    }
                 }
             ]
         },
@@ -132,59 +158,62 @@
         "blocks": {
             "core/buttons": {
                 "spacing": {
-                    "blockGap": "1.25rem"
+                    "blockGap": "2rem"
                 }
             },
             "core/column": {
                 "border": {
                     "radius": {
-                        "bottomLeft": "0.5rem",
-                        "bottomRight": "0.5rem",
-                        "topLeft": "0.5rem",
-                        "topRight": "0.5rem"
+                        "bottomLeft": "0.8rem",
+                        "bottomRight": "0.8rem",
+                        "topLeft": "0.8rem",
+                        "topRight": "0.8rem"
                     }
                 },
                 "spacing": {
-                    "blockGap": "1.25rem",
+                    "blockGap": "2rem",
                     "padding": {
-                        "bottom": "0.5rem",
-                        "left": "0.5rem",
-                        "right": "0.5rem",
-                        "top": "0.5rem"
+                        "bottom": "0.8rem",
+                        "left": "0.8rem",
+                        "right": "0.8rem",
+                        "top": "0.8rem"
                     }
                 }
             },
             "core/columns": {
                 "spacing": {
-                    "blockGap": "1.25rem",
+                    "blockGap": "2rem",
                     "padding": {
-                        "bottom": "0.5rem",
-                        "left": "0.5rem",
-                        "right": "0.5rem",
-                        "top": "0.5rem"
+                        "bottom": "0.8rem",
+                        "left": "0.8rem",
+                        "right": "0.8rem",
+                        "top": "0.8rem"
                     }
                 }
             },
             "core/cover": {
                 "spacing": {
-                    "blockGap": "1.25rem",
+                    "blockGap": "2rem",
                     "padding": {
-                        "bottom": "clamp(3rem, 3.333vw + 2.333rem, 5rem)",
-                        "top": "clamp(3rem, 3.333vw + 2.333rem, 5rem)"
+                        "bottom": "clamp(4rem, 4.167vw + 2.667rem, 8rem)",
+                        "top": "clamp(4rem, 4.167vw + 2.667rem, 8rem)"
                     }
                 }
             },
             "core/group": {
                 "spacing": {
-                    "blockGap": "1.25rem",
+                    "blockGap": "2rem",
                     "padding": {
-                        "bottom": "clamp(3rem, 3.333vw + 2.333rem, 5rem)",
-                        "top": "clamp(3rem, 3.333vw + 2.333rem, 5rem)"
+                        "bottom": "clamp(4rem, 4.167vw + 2.667rem, 8rem)",
+                        "top": "clamp(4rem, 4.167vw + 2.667rem, 8rem)"
                     }
                 }
             },
             "core/heading": {
                 "css": "max-width: min(100%, 55ch)",
+                "color": {
+                    "text": "var(--wp--preset--color--contrast)"
+                },
                 "elements": {
                     "h1": {
                         "typography": {
@@ -219,21 +248,20 @@
                 },
                 "typography": {
                     "fontFamily": "var(--wp--preset--font-family--display)",
-                    "fontWeight": "400",
                     "lineHeight": "1"
                 }
             },
             "core/list": {
                 "spacing": {
                     "padding": {
-                        "left": "2rem"
+                        "left": "3.2rem"
                     }
                 },
                 "css": "width: fit-content"
             },
             "core/navigation": {
                 "spacing": {
-                    "blockGap": "1.5rem"
+                    "blockGap": "2.4rem"
                 },
                 "typography": {
                     "fontFamily": "var(--wp--preset--font-family--display)",
@@ -246,7 +274,7 @@
             },
             "core/post-template": {
                 "spacing": {
-                    "blockGap": "1.25rem"
+                    "blockGap": "2rem"
                 }
             }
         },
@@ -279,10 +307,10 @@
                 "shadow": "0 0 8px -4px #000000",
                 "spacing": {
                     "padding": {
-                        "bottom": "0.75rem",
-                        "left": "1.5rem",
-                        "right": "1.5rem",
-                        "top": "0.75rem"
+                        "bottom": "1.2rem",
+                        "left": "2.4rem",
+                        "right": "2.4rem",
+                        "top": "1.2rem"
                     }
                 },
                 "typography": {
@@ -290,15 +318,6 @@
                     "fontSize": "var(--wp--preset--font-size--label)",
                     "textTransform": "uppercase",
                     "letterSpacing": "1px"
-                }
-            },
-            "heading": {
-                "color": {
-                    "text": "var(--wp--preset--color--contrast)"
-                },
-                "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--display)",
-                    "lineHeight": "1"
                 }
             }
         },

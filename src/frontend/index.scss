@@ -17,11 +17,24 @@
 html {
     scroll-behavior: smooth;
     overflow-wrap: break-word;
-    /* font-size: 62.5%; */
+    font-size: 62.5%;
 }
 
-.lead-form {
-    margin-top: -25%;
+.material-symbols-outlined {
+    font-family: var(--wp--preset--font-family--icons);
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
 }
 
 .preheading {
@@ -60,9 +73,6 @@ html {
 /* ========================================================================== */
 /* List icon styles */
 /* ========================================================================== */
-$icon-color: var(--list-icon-color, currentColor);
-$material-icons: "Material Icons";
-
 .wp-block-list {
     list-style: none !important;
 
@@ -74,8 +84,8 @@ $material-icons: "Material Icons";
 
         &::before {
             content: var(--list-icon);
-            margin-right: 0.5em;
-            font-family: "Material Symbols Outlined" !important;
+            margin-right: 0.25em;
+            font-family: var(--wp--preset--font-family--icons) !important;
             font-weight: normal;
             font-style: normal;
             font-size: var(--list-icon-size);
@@ -94,6 +104,34 @@ $material-icons: "Material Icons";
             color: var(--list-icon-color, currentColor);
         }
     }
+}
+
+
+.wp-block-localpro-shape-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    &.shape-divider-position-top {
+        margin-bottom: 0;
+    }
+
+    &.shape-divider-position-bottom {
+        margin-top: 0;
+    }
+
 }
 
 

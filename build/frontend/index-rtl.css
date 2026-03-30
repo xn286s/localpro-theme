@@ -16,10 +16,23 @@
 html {
   scroll-behavior: smooth;
   overflow-wrap: break-word;
-  /* font-size: 62.5%; */
+  font-size: 62.5%;
 }
-.lead-form {
-  margin-top: -25%;
+.material-symbols-outlined {
+  font-family: var(--wp--preset--font-family--icons);
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
 }
 .preheading {
   color: var(--wp--preset--color--primary);
@@ -63,8 +76,8 @@ html {
 }
 .wp-block-list li::before {
   content: var(--list-icon);
-  margin-left: 0.5em;
-  font-family: "Material Symbols Outlined" !important;
+  margin-left: 0.25em;
+  font-family: var(--wp--preset--font-family--icons) !important;
   font-weight: normal;
   font-style: normal;
   font-size: var(--list-icon-size);
@@ -81,6 +94,28 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color: var(--list-icon-color, currentColor);
+}
+.wp-block-localpro-shape-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.wp-block-localpro-shape-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+.wp-block-localpro-shape-divider.shape-divider-position-top {
+  margin-bottom: 0;
+}
+.wp-block-localpro-shape-divider.shape-divider-position-bottom {
+  margin-top: 0;
 }
 /* ========================================================================== */
 /* Scroll Reveal Animation */

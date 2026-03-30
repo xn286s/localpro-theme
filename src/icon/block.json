@@ -2,7 +2,6 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "localpro/icon",
-    "version": "0.1.0",
     "title": "Icon",
     "category": "text",
     "icon": "superhero-alt",
@@ -10,7 +9,7 @@
     "example": {
         "attributes": {
             "selectedIcon": "home",
-            "iconSize": "48px",
+            "iconSize": "48",
             "iconColor": "var(--wp--preset--color--primary)"
         }
     },
@@ -21,7 +20,7 @@
         },
         "iconSize": {
             "type": "string",
-            "default": "48px"
+            "default": "4.8rem"
         },
         "iconColor": {
             "type": "string",
@@ -29,7 +28,7 @@
         }
     },
     "supports": {
-        "html": true,
+        "html": false,
         "align": true,
         "spacing": {
             "margin": true,
@@ -38,6 +37,5 @@
     },
     "textdomain": "localpro",
     "editorScript": "file:./index.js",
-    "editorStyle": "file:./index.css",
-    "style": "file:./style-index.css"
+    "editorStyle": "file:./index.css"
 }

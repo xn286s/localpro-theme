@@ -8,7 +8,7 @@ import './editor.scss';
 const ICON_CATEGORIES = Object.keys(ICONS);
 const MATERIAL_ICONS = Object.values(ICONS).flat();
 
-const DEFAULT_ICON_SIZE = '48';
+const DEFAULT_ICON_SIZE = '4.8rem';
 
 export default function Edit({ attributes, setAttributes }) {
     const { selectedIcon, iconSize, iconColor } = attributes;
@@ -27,6 +27,15 @@ export default function Edit({ attributes, setAttributes }) {
         ...ICON_CATEGORIES.map((cat) => ({ label: cat, value: cat })),
     ];
 
+    // const fontSizes = useSettings('typography.fontSizes') ?? [];
+    const [fontSettings] = useSettings('typography.fontSizes');
+    const fontSizes = (fontSettings ?? []).map(({ name, slug, size }) => ({
+        name,
+        slug,
+        // If size is an object (fluid), fall back to the raw size string
+        size: typeof size === 'string' ? size : size?.min ?? '',
+    }));
+
     let filteredIcons;
     if (search) {
         filteredIcons = MATERIAL_ICONS.filter((icon) =>
@@ -41,32 +50,32 @@ export default function Edit({ attributes, setAttributes }) {
     return (
         <>
             <InspectorControls>
-                <PanelBody
-                    title={__('Icon Size', 'localpro-icon-picker')}
-                    initialOpen={true}
-                >
-                    <FontSizePicker
-                        fontSizes={useSettings('typography.fontSizes') || []}
-                        value={iconSize}
-                        onChange={(val) =>
-                            setAttributes({ iconSize: val || '' })
-                        }
-                        fallbackFontSize={DEFAULT_ICON_SIZE}
-                        withReset
-                    />
-                </PanelBody>
                 <PanelColorSettings
                     title={__('Icon Color', 'localpro-icon-picker')}
                     initialOpen={true}
                     colorSettings={[
                         {
                             value: iconColor,
-                            onChange: (value) =>
-                                setAttributes({ iconColor: value || '' }),
+                            onChange: (val) =>
+                                setAttributes({ iconColor: val || '' }),
                             label: __('Color', 'localpro-icon-picker'),
                         },
                     ]}
                 />
+                <PanelBody
+                    title={__('Icon Size', 'localpro-icon-picker')}
+                    initialOpen={true}
+                >
+                    <FontSizePicker
+                        fontSizes={fontSizes}
+                        value={defaultSize}
+                        onChange={(val) =>
+                            setAttributes({ iconSize: val || DEFAULT_ICON_SIZE })
+                        }
+                        fallbackFontSize={DEFAULT_ICON_SIZE}
+                        withReset
+                    />
+                </PanelBody>
                 <PanelBody
                     title={__('Choose Icon', 'localpro-icon-picker')}
                     initialOpen={true}
@@ -111,8 +120,8 @@ export default function Edit({ attributes, setAttributes }) {
                                     }
                                 >
                                     <span
-                                        className="material-icons"
-                                        style={{ fontSize: '24px' }}
+                                        className="material-symbols-outlined"
+                                        style={{ fontSize: '2.4rem' }}
                                     >
                                         {icon}
                                     </span>
@@ -128,8 +137,17 @@ export default function Edit({ attributes, setAttributes }) {
                             </p>
                         )}
                     </div>
+                    <Button
+                        isDestructive
+                        variant="tertiary"
+                        onClick={() => setAttributes({ selectedIcon: '' })}
+                    >
+                        {__('Clear', 'localpro-icon-picker')}
+                    </Button>
                 </PanelBody>
             </InspectorControls>
+
+            {/* Specific to the localpro/icon custom block */}
             {blockProps['data-title'] === 'Icon' && (
                 <div {...blockProps}>
                     <span

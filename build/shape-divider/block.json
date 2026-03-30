@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "localpro/shape-divider",
+  "title": "Shape Divider Block",
+  "category": "design",
+  "icon": "art",
+  "description": "A decorative SVG shape divider block with multiple shapes, offset, position, height, color, and flip controls.",
+  "example": {
+    "attributes": {
+      "shape": "wave",
+      "offset": 50,
+      "position": "bottom",
+      "height": 80,
+      "color": "#0073aa",
+      "flip": false
+    }
+  },
+  "attributes": {
+    "shape": {
+      "type": "string",
+      "default": "wave"
+    },
+    "offset": {
+      "type": "number",
+      "default": 50
+    },
+    "position": {
+      "type": "string",
+      "default": "bottom"
+    },
+    "height": {
+      "type": "number",
+      "default": 80
+    },
+    "color": {
+      "type": "string",
+      "default": "#1e1e1e"
+    },
+    "flip": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full",
+      "wide"
+    ],
+    "spacing": {
+      "margin": true
+    }
+  },
+  "textdomain": "telex-shape-divider",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const ICON_CATEGORIES = Object.keys(_icons_json__WEBPACK_IMPORTED_MODULE_4__);
 const MATERIAL_ICONS = Object.values(_icons_json__WEBPACK_IMPORTED_MODULE_4__).flat();
-const DEFAULT_ICON_SIZE = '48';
+const DEFAULT_ICON_SIZE = '4.8rem';
 function Edit({
   attributes,
   setAttributes
@@ -58,6 +58,19 @@ function Edit({
     label: cat,
     value: cat
   }))];
+
+  // const fontSizes = useSettings('typography.fontSizes') ?? [];
+  const [fontSettings] = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useSettings)('typography.fontSizes');
+  const fontSizes = (fontSettings ?? []).map(({
+    name,
+    slug,
+    size
+  }) => ({
+    name,
+    slug,
+    // If size is an object (fluid), fall back to the raw size string
+    size: typeof size === 'string' ? size : size?.min ?? ''
+  }));
   let filteredIcons;
   if (search) {
     filteredIcons = MATERIAL_ICONS.filter(icon => icon.toLowerCase().includes(search.toLowerCase()));
@@ -68,28 +81,28 @@ function Edit({
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon Size', 'localpro-icon-picker'),
-        initialOpen: true,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FontSizePicker, {
-          fontSizes: (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useSettings)('typography.fontSizes') || [],
-          value: iconSize,
-          onChange: val => setAttributes({
-            iconSize: val || ''
-          }),
-          fallbackFontSize: DEFAULT_ICON_SIZE,
-          withReset: true
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PanelColorSettings, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PanelColorSettings, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon Color', 'localpro-icon-picker'),
         initialOpen: true,
         colorSettings: [{
           value: iconColor,
-          onChange: value => setAttributes({
-            iconColor: value || ''
+          onChange: val => setAttributes({
+            iconColor: val || ''
           }),
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Color', 'localpro-icon-picker')
         }]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon Size', 'localpro-icon-picker'),
+        initialOpen: true,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FontSizePicker, {
+          fontSizes: fontSizes,
+          value: defaultSize,
+          onChange: val => setAttributes({
+            iconSize: val || DEFAULT_ICON_SIZE
+          }),
+          fallbackFontSize: DEFAULT_ICON_SIZE,
+          withReset: true
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Choose Icon', 'localpro-icon-picker'),
         initialOpen: true,
@@ -121,9 +134,9 @@ function Edit({
                 selectedIcon: icon
               }),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "material-icons",
+                className: "material-symbols-outlined",
                 style: {
-                  fontSize: '24px'
+                  fontSize: '2.4rem'
                 },
                 children: icon
               })
@@ -132,6 +145,13 @@ function Edit({
             className: "localpro-icon-picker-grid__empty",
             children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('No icons found.', 'localpro-icon-picker')
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          isDestructive: true,
+          variant: "tertiary",
+          onClick: () => setAttributes({
+            selectedIcon: ''
+          }),
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Clear', 'localpro-icon-picker')
         })]
       })]
     }), blockProps['data-title'] === 'Icon' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -151,93 +171,10 @@ function Edit({
 
 /***/ },
 
-/***/ "./src/icon/index.js"
-/*!***************************!*\
-  !*** ./src/icon/index.js ***!
-  \***************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/icon/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/icon/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/icon/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/icon/block.json");
-
-
-
-
-
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
-});
-
-/***/ },
-
-/***/ "./src/icon/save.js"
-/*!**************************!*\
-  !*** ./src/icon/save.js ***!
-  \**************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ save)
-/* harmony export */ });
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
-
-
-const DEFAULT_ICON_SIZE = 48;
-function save({
-  attributes
-}) {
-  const {
-    selectedIcon,
-    iconSize,
-    iconColor
-  } = attributes;
-  const computedSize = iconSize ? iconSize : DEFAULT_ICON_SIZE + 'px';
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-      style: {
-        textAlign: 'center'
-      }
-    }),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-      className: "material-icons",
-      style: {
-        fontSize: computedSize,
-        color: iconColor || undefined,
-        lineHeight: 1
-      },
-      children: selectedIcon
-    })
-  });
-}
-
-/***/ },
-
 /***/ "./src/icon/editor.scss"
 /*!******************************!*\
   !*** ./src/icon/editor.scss ***!
   \******************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ },
-
-/***/ "./src/icon/style.scss"
-/*!*****************************!*\
-  !*** ./src/icon/style.scss ***!
-  \*****************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -312,7 +249,7 @@ module.exports = window["wp"]["i18n"];
   \*****************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"localpro/icon","version":"0.1.0","title":"Icon","category":"text","icon":"superhero-alt","description":"Insert Google Material Icons with a searchable picker, customizable size and color.","example":{"attributes":{"selectedIcon":"home","iconSize":"48px","iconColor":"var(--wp--preset--color--primary)"}},"attributes":{"selectedIcon":{"type":"string","default":"home"},"iconSize":{"type":"string","default":"48px"},"iconColor":{"type":"string","default":"var(--wp--preset--color--primary)"}},"supports":{"html":true,"align":true,"spacing":{"margin":true,"padding":true}},"textdomain":"localpro","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"localpro/icon","title":"Icon","category":"text","icon":"superhero-alt","description":"Insert Google Material Icons with a searchable picker, customizable size and color.","example":{"attributes":{"selectedIcon":"home","iconSize":"48","iconColor":"var(--wp--preset--color--primary)"}},"attributes":{"selectedIcon":{"type":"string","default":"home"},"iconSize":{"type":"string","default":"4.8rem"},"iconColor":{"type":"string","default":"var(--wp--preset--color--primary)"}},"supports":{"html":false,"align":true,"spacing":{"margin":true,"padding":true}},"textdomain":"localpro","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
 
 /***/ },
 
@@ -358,42 +295,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"Checkmarks & Done":["check","check_c
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -434,68 +336,61 @@ module.exports = /*#__PURE__*/JSON.parse('{"Checkmarks & Done":["check","check_c
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"icon/index": 0,
-/******/ 			"icon/style-index": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = globalThis["webpackChunklocalpro"] = globalThis["webpackChunklocalpro"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["icon/style-index"], () => (__webpack_require__("./src/icon/index.js")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+/*!***************************!*\
+  !*** ./src/icon/index.js ***!
+  \***************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./block.json */ "./src/icon/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/icon/edit.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/icon/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+const DEFAULT_ICON_SIZE = 48;
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_2__.name, {
+  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  save: ({
+    attributes
+  }) => {
+    const {
+      selectedIcon,
+      iconSize,
+      iconColor
+    } = attributes;
+    const computedSize = iconSize ? iconSize : DEFAULT_ICON_SIZE + 'px';
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+        style: {
+          textAlign: 'center'
+        }
+      }),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+        className: "material-symbols-outlined",
+        style: {
+          fontSize: computedSize,
+          color: iconColor || undefined,
+          lineHeight: 1
+        },
+        children: selectedIcon
+      })
+    });
+  }
+});
+})();
+
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map

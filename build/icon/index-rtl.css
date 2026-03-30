@@ -1,9 +1,28 @@
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/icon/editor.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************/
-/**
- * Editor-only styles for the Icon Picker.
- */
+/* ==========================================================================*/
+/* Material Symbols Outlined for the editor */
+/* ==========================================================================*/
+.material-symbols-outlined {
+  font-family: var(--wp--preset--font-family--icons);
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
+}
+/*==========================================================================*/
+/* Editor-only styles for the Icon Picker. */
+/*==========================================================================*/
 .localpro-icon-picker-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -40,10 +59,10 @@
   background: #007cba;
   border-color: #007cba;
 }
-.localpro-icon-picker-grid__item.is-selected .material-icons {
+.localpro-icon-picker-grid__item.is-selected .material-symbols-outlined {
   color: #fff;
 }
-.localpro-icon-picker-grid__item .material-icons {
+.localpro-icon-picker-grid__item .material-symbols-outlined {
   display: block;
   overflow: hidden;
 }

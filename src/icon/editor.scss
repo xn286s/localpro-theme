@@ -1,7 +1,26 @@
-/**
- * Editor-only styles for the Icon Picker.
- */
+/* ==========================================================================*/
+/* Material Symbols Outlined for the editor */
+/* ==========================================================================*/
+.material-symbols-outlined {
+    font-family: var(--wp--preset--font-family--icons);
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
 
+/*==========================================================================*/
+/* Editor-only styles for the Icon Picker. */
+/*==========================================================================*/
 .localpro-icon-picker-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -39,12 +58,12 @@
             background: #007cba;
             border-color: #007cba;
 
-            .material-icons {
+            .material-symbols-outlined {
                 color: #fff;
             }
         }
 
-        .material-icons {
+        .material-symbols-outlined {
             display: block;
             overflow: hidden;
         }

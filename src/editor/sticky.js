@@ -49,9 +49,7 @@ addFilter(
     (extraProps, attributes) => {
         const classes = [];
 
-        if (attributes.hasSticky) {
-            classes.push('is-sticky');
-        }
+        if (attributes.hasSticky) classes.push('is-sticky');
 
         if (!classes.length) return extraProps;
 

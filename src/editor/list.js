@@ -1,21 +1,9 @@
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
 import Edit from '../icon/edit';
-import './list.scss';
 
-// registerBlockVariation('core/list', {
-//     name: 'localpro-list',
-//     title: 'List',
-//     attributes: {
-//         selectedIcon: 'check',
-//         iconSize: 24,
-//         iconColor: 'var(--wp-preset--color--primary)',
-//         className: ['localpro-list--material-icon', 'localpro-list--has-icon-color', 'localpro-list--has-icon-size']
-//     },
-//     isDefault: true
-// });
-
-addFilter('blocks.registerBlockType', 'localpro-list/add-attributes', (settings, name) => {
+// Hook into the core/list block styles -> add icon picker attributes
+addFilter('blocks.registerBlockType', 'localpro-list/attributes', (settings, name) => {
     if (name !== 'core/list') {
         return settings;
     }
@@ -23,24 +11,15 @@ addFilter('blocks.registerBlockType', 'localpro-list/add-attributes', (settings,
         ...settings,
         attributes: {
             ...settings.attributes,
-            iconSize: {
-                type: 'integer',
-                default: '24',
-            },
-            iconColor: {
-                type: 'string',
-                default: 'var(--wp-preset--color--primary)',
-            },
-            selectedIcon: {
-                type: 'string',
-                default: 'circle',
-            },
+            iconSize: { type: 'string', default: '1.5em' },
+            iconColor: { type: 'string', default: 'var(--wp-preset--color-primary)' },
+            selectedIcon: { type: 'string', default: 'check' }
         },
     };
 });
 
-// List marker icon picker controls for core/list
-const addIconPickerControls = createHigherOrderComponent((BlockEdit) => {
+// Hook into core/list block controls -> add icon picker
+const iconPickerControls = createHigherOrderComponent((BlockEdit) => {
     return (props) => {
         const { name, attributes, setAttributes } = props;
 
@@ -54,9 +33,10 @@ const addIconPickerControls = createHigherOrderComponent((BlockEdit) => {
             </>
         );
     };
-}, 'addIconPickerControls');
-addFilter('editor.BlockEdit', 'localpro-list/add-icon-picker-controls', addIconPickerControls);
+}, 'iconPickerControls');
+addFilter('editor.BlockEdit', 'localpro-list/icon-picker-controls', iconPickerControls);
 
+// Hook into core/list block props -> add icon classes and styles
 const addIconProps = createHigherOrderComponent((BlockListBlock) => {
     return (props) => {
         const { name, attributes } = props;
@@ -140,7 +120,7 @@ addFilter(
                 .join(' ');
             extraProps.style = {
                 ...(extraProps.style || {}),
-                '--list-icon-size': iconSize + 'px',
+                '--list-icon-size': iconSize + 'em',
             };
         }
 
