@@ -2,7 +2,7 @@
 /**
  * Title: Section Break - Call to Action
  * Slug: localpro/sectionbreak-cta
- * Categories: localpro, section-break, call-to-action
+ * Categories: localpro, section, section-break, call-to-action
  */
 ?>
 

@@ -1,17 +1,6 @@
-import { PanelColorSettings } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import {
-    useBlockProps,
-    InspectorControls,
-} from '@wordpress/block-editor';
-import {
-    PanelBody,
-    SelectControl,
-    RangeControl,
-    ToggleControl,
-    ColorPicker,
-} from '@wordpress/components';
-import './editor.scss';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, SelectControl, RangeControl, ToggleControl } from '@wordpress/components';
 
 const SHAPE_OPTIONS = [
     { label: __('Wave', 'localpro-shape-divider'), value: 'wave' },
@@ -83,10 +72,10 @@ function generatePath(shape, offset, width, height) {
 }
 
 export default function Edit({ attributes, setAttributes }) {
-    const { shape, offset, position, height, color, flip } = attributes;
+    const { shape, offset, height, flip } = attributes;
 
     const blockProps = useBlockProps({
-        className: `shape-divider-position-${position}`,
+        className: 'shape-divider',
     });
 
     const svgStyle = {
@@ -97,6 +86,7 @@ export default function Edit({ attributes, setAttributes }) {
     };
 
     const path = generatePath(shape, offset, 1200, 100);
+
 
     return (
         <>
@@ -116,15 +106,6 @@ export default function Edit({ attributes, setAttributes }) {
                         max={100}
                         help={__('Shifts the shape focal point horizontally.', 'localpro-shape-divider')}
                     />
-                    <SelectControl
-                        label={__('Position', 'localpro-shape-divider')}
-                        value={position}
-                        options={[
-                            { label: __('Top', 'localpro-shape-divider'), value: 'top' },
-                            { label: __('Bottom', 'localpro-shape-divider'), value: 'bottom' },
-                        ]}
-                        onChange={(value) => setAttributes({ position: value })}
-                    />
                     <RangeControl
                         label={__('Height (px)', 'localpro-shape-divider')}
                         value={height}
@@ -138,18 +119,6 @@ export default function Edit({ attributes, setAttributes }) {
                         onChange={(value) => setAttributes({ flip: value })}
                     />
                 </PanelBody>
-                <PanelColorSettings
-                    title={__('Color', 'localpro-shape-divider')}
-                    initialOpen={true}
-                    colorSettings={[
-                        {
-                            value: color,
-                            onChange: (val) =>
-                                setAttributes({ color: val || '' }),
-                            label: __('Color', 'localpro-shape-divider'),
-                        },
-                    ]}
-                />
             </InspectorControls>
             <div {...blockProps}>
                 <svg
@@ -159,7 +128,7 @@ export default function Edit({ attributes, setAttributes }) {
                     style={svgStyle}
                     aria-hidden="true"
                 >
-                    <path d={path} fill={color} />
+                    <path d={path} fill={blockProps.style.color} />
                 </svg>
             </div>
         </>

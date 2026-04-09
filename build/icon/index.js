@@ -2,15 +2,15 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/icon/edit.js"
-/*!**************************!*\
-  !*** ./src/icon/edit.js ***!
-  \**************************/
+/***/ "./src/editor/iconpicker.js"
+/*!**********************************!*\
+  !*** ./src/editor/iconpicker.js ***!
+  \**********************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */   "default": () => (/* binding */ IconPicker)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
@@ -20,8 +20,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _icons_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons.json */ "./src/icon/icons.json");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/icon/editor.scss");
+/* harmony import */ var _icons_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons.json */ "./src/editor/icons.json");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/editor/editor.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 
@@ -33,8 +33,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const ICON_CATEGORIES = Object.keys(_icons_json__WEBPACK_IMPORTED_MODULE_4__);
 const MATERIAL_ICONS = Object.values(_icons_json__WEBPACK_IMPORTED_MODULE_4__).flat();
-const DEFAULT_ICON_SIZE = '4.8rem';
-function Edit({
+const DEFAULT_ICON_SIZE = 4.8;
+function IconPicker({
   attributes,
   setAttributes
 }) {
@@ -43,12 +43,6 @@ function Edit({
     iconSize,
     iconColor
   } = attributes;
-  const defaultSize = iconSize ? iconSize : DEFAULT_ICON_SIZE;
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    style: {
-      textAlign: 'center'
-    }
-  });
   const [search, setSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const [category, setCategory] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
   const categoryOptions = [{
@@ -58,19 +52,6 @@ function Edit({
     label: cat,
     value: cat
   }))];
-
-  // const fontSizes = useSettings('typography.fontSizes') ?? [];
-  const [fontSettings] = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useSettings)('typography.fontSizes');
-  const fontSizes = (fontSettings ?? []).map(({
-    name,
-    slug,
-    size
-  }) => ({
-    name,
-    slug,
-    // If size is an object (fluid), fall back to the raw size string
-    size: typeof size === 'string' ? size : size?.min ?? ''
-  }));
   let filteredIcons;
   if (search) {
     filteredIcons = MATERIAL_ICONS.filter(icon => icon.toLowerCase().includes(search.toLowerCase()));
@@ -79,29 +60,38 @@ function Edit({
   } else {
     filteredIcons = MATERIAL_ICONS;
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PanelColorSettings, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon Color', 'localpro-icon-picker'),
-        initialOpen: true,
+        initialOpen: false,
         colorSettings: [{
           value: iconColor,
           onChange: val => setAttributes({
-            iconColor: val || ''
+            iconColor: val || 'var(--wp--preset--color--primary)'
           }),
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Color', 'localpro-icon-picker')
         }]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon Size', 'localpro-icon-picker'),
-        initialOpen: true,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FontSizePicker, {
-          fontSizes: fontSizes,
-          value: defaultSize,
+        initialOpen: false,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
+          __next40pxDefaultSize: true,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon Size', 'localpro-icon-picker'),
+          initialOpen: false,
+          value: iconSize,
+          currentInput: DEFAULT_ICON_SIZE,
+          allowReset: true,
+          resetFallbackValue: DEFAULT_ICON_SIZE,
           onChange: val => setAttributes({
-            iconSize: val || DEFAULT_ICON_SIZE
+            iconSize: `${val}em`
           }),
-          fallbackFontSize: DEFAULT_ICON_SIZE,
-          withReset: true
+          type: "stepper",
+          min: 2,
+          max: 6,
+          step: 0.2,
+          withInputField: true,
+          showTooltip: true
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Choose Icon', 'localpro-icon-picker'),
@@ -130,9 +120,12 @@ function Edit({
             text: icon,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
               className: 'localpro-icon-picker-grid__item' + (selectedIcon === icon ? ' is-selected' : ''),
-              onClick: () => setAttributes({
-                selectedIcon: icon
-              }),
+              onClick: () => {
+                console.log(attributes);
+                setAttributes({
+                  selectedIcon: icon || 'circle'
+                });
+              },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "material-symbols-outlined",
                 style: {
@@ -149,14 +142,56 @@ function Edit({
           isDestructive: true,
           variant: "tertiary",
           onClick: () => setAttributes({
-            selectedIcon: ''
+            selectedIcon: 'circle'
           }),
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Clear', 'localpro-icon-picker')
         })]
       })]
-    }), blockProps['data-title'] === 'Icon' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      ...blockProps,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+    })
+  });
+}
+
+/***/ },
+
+/***/ "./src/icon/edit.js"
+/*!**************************!*\
+  !*** ./src/icon/edit.js ***!
+  \**************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _editor_iconpicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../editor/iconpicker */ "./src/editor/iconpicker.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    selectedIcon,
+    iconSize,
+    iconColor
+  } = attributes;
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
+    style: {
+      textAlign: 'center'
+    }
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_editor_iconpicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      attributes: attributes,
+      setAttributes: setAttributes
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)(blockProps),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         className: "material-symbols-outlined",
         style: {
           fontSize: iconSize,
@@ -171,10 +206,10 @@ function Edit({
 
 /***/ },
 
-/***/ "./src/icon/editor.scss"
-/*!******************************!*\
-  !*** ./src/icon/editor.scss ***!
-  \******************************/
+/***/ "./src/editor/editor.scss"
+/*!********************************!*\
+  !*** ./src/editor/editor.scss ***!
+  \********************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -243,23 +278,23 @@ module.exports = window["wp"]["i18n"];
 
 /***/ },
 
+/***/ "./src/editor/icons.json"
+/*!*******************************!*\
+  !*** ./src/editor/icons.json ***!
+  \*******************************/
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"Checkmarks & Done":["check","check_circle","check_circle_outline","check_box","done","done_all","done_outline","task_alt","verified","verified_user","fact_check","playlist_add_check","assignment_turned_in","offline_pin","how_to_reg"],"Arrows & Navigation":["arrow_right","arrow_right_alt","arrow_forward","arrow_forward_ios","chevron_right","double_arrow","east","trending_flat","trending_up","trending_down","subdirectory_arrow_right","play_arrow","skip_next","redo","shortcut","north_east","south_east","keyboard_arrow_right","last_page","navigate_next","read_more","send"],"Stars & Ratings":["star","star_border","star_half","star_outline","grade","stars","auto_awesome","military_tech","workspace_premium","emoji_events","diamond","loyalty"],"Hearts & Favorites":["favorite","favorite_border","heart_broken","volunteer_activism","thumb_up","thumb_up_off_alt","thumb_down","thumb_down_off_alt","sentiment_satisfied","sentiment_very_satisfied","mood","recommend"],"Shapes & Bullets":["circle","radio_button_checked","radio_button_unchecked","fiber_manual_record","lens","panorama_fish_eye","square","crop_square","stop","change_history","remove","horizontal_rule","minimize","adjust","brightness_1","trip_origin","hexagon","pentagon"],"Status & Alerts":["error","error_outline","warning","warning_amber","info","info_outline","help","help_outline","report","report_problem","notification_important","priority_high","new_releases","cancel","block","do_not_disturb","dangerous","crisis_alert"],"Add & Remove":["add","add_circle","add_circle_outline","add_box","remove","remove_circle","remove_circle_outline","close","not_interested","highlight_off"],"Pins, Flags & Labels":["push_pin","flag","outlined_flag","tour","bookmark","bookmark_border","bookmarks","label","label_important","turned_in","turned_in_not","sell","local_offer","style","new_label"],"Light & Energy":["bolt","flash_on","flash_off","electric_bolt","lightbulb","lightbulb_outline","emoji_objects","highlight","tungsten","tips_and_updates","auto_fix_high"],"Nature & Weather":["eco","park","spa","local_florist","grass","forest","yard","energy_savings_leaf","water_drop","ac_unit","wb_sunny","brightness_5","cloud","thunderstorm","air","waves"],"People & Hands":["person","people","groups","face","pets","accessibility_new","waving_hand","front_hand","back_hand","handshake","self_improvement","directions_run","directions_walk"],"Communication":["chat","chat_bubble","chat_bubble_outline","forum","comment","mode_comment","textsms","campaign","notifications","notifications_active","mark_email_read","mail","call","ring_volume"],"Objects & Tools":["build","construction","handyman","hardware","key","vpn_key","lock","lock_open","settings","tune","science","biotech","palette","brush","create","edit","delete","inventory","token","savings","attach_money","paid","monetization_on","shopping_cart","shopping_bag","local_shipping","rocket_launch","rocket"],"Media & Files":["image","photo_camera","videocam","music_note","headphones","mic","volume_up","movie","article","description","folder","attachment","link","insert_drive_file"],"Places & Maps":["place","location_on","near_me","explore","public","language","map","my_location","navigation","home","apartment","store","restaurant","local_cafe","local_hospital","school","church","castle"],"Time & Calendar":["schedule","access_time","timer","hourglass_empty","hourglass_full","update","history","event","today","date_range","calendar_month","alarm","alarm_on"],"Security & Privacy":["security","shield","gpp_good","gpp_bad","gpp_maybe","admin_panel_settings","policy","privacy_tip","health_and_safety","local_police","visibility","visibility_off"],"Miscellaneous":["local_fire_department","whatshot","celebration","cake","redeem","card_giftcard","extension","toys","smart_toy","bug_report","code","terminal","data_object","hub","share","qr_code","fingerprint","psychology","fitness_center","sports_esports","emoji_food_beverage","coffee","local_dining","set_meal","fastfood"]}');
+
+/***/ },
+
 /***/ "./src/icon/block.json"
 /*!*****************************!*\
   !*** ./src/icon/block.json ***!
   \*****************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"localpro/icon","title":"Icon","category":"text","icon":"superhero-alt","description":"Insert Google Material Icons with a searchable picker, customizable size and color.","example":{"attributes":{"selectedIcon":"home","iconSize":"48","iconColor":"var(--wp--preset--color--primary)"}},"attributes":{"selectedIcon":{"type":"string","default":"home"},"iconSize":{"type":"string","default":"4.8rem"},"iconColor":{"type":"string","default":"var(--wp--preset--color--primary)"}},"supports":{"html":false,"align":true,"spacing":{"margin":true,"padding":true}},"textdomain":"localpro","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
-
-/***/ },
-
-/***/ "./src/icon/icons.json"
-/*!*****************************!*\
-  !*** ./src/icon/icons.json ***!
-  \*****************************/
-(module) {
-
-module.exports = /*#__PURE__*/JSON.parse('{"Checkmarks & Done":["check","check_circle","check_circle_outline","check_box","done","done_all","done_outline","task_alt","verified","verified_user","fact_check","playlist_add_check","assignment_turned_in","offline_pin","how_to_reg"],"Arrows & Navigation":["arrow_right","arrow_right_alt","arrow_forward","arrow_forward_ios","chevron_right","double_arrow","east","trending_flat","trending_up","trending_down","subdirectory_arrow_right","play_arrow","skip_next","redo","shortcut","north_east","south_east","keyboard_arrow_right","last_page","navigate_next","read_more","send"],"Stars & Ratings":["star","star_border","star_half","star_outline","grade","stars","auto_awesome","military_tech","workspace_premium","emoji_events","diamond","loyalty"],"Hearts & Favorites":["favorite","favorite_border","heart_broken","volunteer_activism","thumb_up","thumb_up_off_alt","thumb_down","thumb_down_off_alt","sentiment_satisfied","sentiment_very_satisfied","mood","recommend"],"Shapes & Bullets":["circle","radio_button_checked","radio_button_unchecked","fiber_manual_record","lens","panorama_fish_eye","square","crop_square","stop","change_history","remove","horizontal_rule","minimize","adjust","brightness_1","trip_origin","hexagon","pentagon"],"Status & Alerts":["error","error_outline","warning","warning_amber","info","info_outline","help","help_outline","report","report_problem","notification_important","priority_high","new_releases","cancel","block","do_not_disturb","dangerous","crisis_alert"],"Add & Remove":["add","add_circle","add_circle_outline","add_box","remove","remove_circle","remove_circle_outline","close","not_interested","highlight_off"],"Pins, Flags & Labels":["push_pin","flag","outlined_flag","tour","bookmark","bookmark_border","bookmarks","label","label_important","turned_in","turned_in_not","sell","local_offer","style","new_label"],"Light & Energy":["bolt","flash_on","flash_off","electric_bolt","lightbulb","lightbulb_outline","emoji_objects","highlight","tungsten","tips_and_updates","auto_fix_high"],"Nature & Weather":["eco","park","spa","local_florist","grass","forest","yard","energy_savings_leaf","water_drop","ac_unit","wb_sunny","brightness_5","cloud","thunderstorm","air","waves"],"People & Hands":["person","people","groups","face","pets","accessibility_new","waving_hand","front_hand","back_hand","handshake","self_improvement","directions_run","directions_walk"],"Communication":["chat","chat_bubble","chat_bubble_outline","forum","comment","mode_comment","textsms","campaign","notifications","notifications_active","mark_email_read","mail","call","ring_volume"],"Objects & Tools":["build","construction","handyman","hardware","key","vpn_key","lock","lock_open","settings","tune","science","biotech","palette","brush","create","edit","delete","inventory","token","savings","attach_money","paid","monetization_on","shopping_cart","shopping_bag","local_shipping","rocket_launch","rocket"],"Media & Files":["image","photo_camera","videocam","music_note","headphones","mic","volume_up","movie","article","description","folder","attachment","link","insert_drive_file"],"Places & Maps":["place","location_on","near_me","explore","public","language","map","my_location","navigation","home","apartment","store","restaurant","local_cafe","local_hospital","school","church","castle"],"Time & Calendar":["schedule","access_time","timer","hourglass_empty","hourglass_full","update","history","event","today","date_range","calendar_month","alarm","alarm_on"],"Security & Privacy":["security","shield","gpp_good","gpp_bad","gpp_maybe","admin_panel_settings","policy","privacy_tip","health_and_safety","local_police","visibility","visibility_off"],"Miscellaneous":["local_fire_department","whatshot","celebration","cake","redeem","card_giftcard","extension","toys","smart_toy","bug_report","code","terminal","data_object","hub","share","qr_code","fingerprint","psychology","fitness_center","sports_esports","emoji_food_beverage","coffee","local_dining","set_meal","fastfood"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"localpro/icon","title":"Icon","category":"text","icon":"superhero-alt","description":"Insert Google Material Icons with a searchable picker, customizable size and color.","example":{"attributes":{"selectedIcon":"home","iconSize":"4.8","iconColor":"var(--wp--preset--color--primary)"}},"attributes":{"selectedIcon":{"type":"string","default":"home"},"iconSize":{"type":"string","default":"4.8rem"},"iconColor":{"type":"string","default":"var(--wp--preset--color--primary)"}},"supports":{"html":false,"spacing":{"margin":true,"padding":true},"typography":{"textAlign":true}},"textdomain":"localpro","editorScript":"file:./index.js"}');
 
 /***/ }
 
@@ -350,16 +385,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./block.json */ "./src/icon/block.json");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/icon/edit.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/icon/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
 
-
-const DEFAULT_ICON_SIZE = 48;
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_2__.name, {
   edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
   save: ({
@@ -370,17 +402,12 @@ const DEFAULT_ICON_SIZE = 48;
       iconSize,
       iconColor
     } = attributes;
-    const computedSize = iconSize ? iconSize : DEFAULT_ICON_SIZE + 'px';
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-        style: {
-          textAlign: 'center'
-        }
-      }),
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         className: "material-symbols-outlined",
         style: {
-          fontSize: computedSize,
+          fontSize: iconSize,
           color: iconColor || undefined,
           lineHeight: 1
         },

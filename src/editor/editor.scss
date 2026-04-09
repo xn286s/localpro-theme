@@ -1,28 +1,106 @@
 /* ========================================================================== */
-/* Shared frontend styles for core/list blocks within editor */
+/* Shared frontend styles for the editor */
 /* ========================================================================== */
+@view-transition {
+    navigation: auto;
+}
+
+/*----------------- Mobile -----------------*/
+@media screen and (max-width: 768px) {
+
+    .wp-block-heading,
+    p {
+        text-align: center !important;
+    }
+
+    .lead-form {
+        margin-top: 0 !important;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     overflow-wrap: break-word;
     font-size: 62.5%;
+    accent-color: var(--wp--preset--color--primary);
 }
 
-.wp-block-list {
+.material-symbols-outlined {
+    font-family: var(--wp--preset--font-family--icons) !important;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+/*----------------- Theme Styles -----------------*/
+.is-preheading {
+    font-size: var(--wp--preset--font-size--label);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.is-glass--dark {
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.33);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.is-glass--light {
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.33);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.is-sticky {
+    position: sticky;
+    top: 0;
+}
+
+/*----------------- Service Post Query Loop Styles -----------------*/
+.wp-block-post.service {
+    overflow: hidden;
+}
+
+.wp-block-post.service img {
+    transition: transform .5s ease;
+}
+
+.wp-block-post.service:hover img {
+    transform: scale(1.25);
+}
+
+.wp-block-post.service:hover {
+    box-shadow: var(--wp--preset--shadow--lifted);
+}
+
+/*----------------- List Marker Icon -----------------*/
+.wp-block-list.is-style-icon-list {
     list-style: none !important;
 
-    li {
+    li.wp-block-list-item {
         position: relative;
         padding-left: 0;
         display: flex;
         align-items: center;
 
         &::before {
-            content: var(--list-icon);
-            margin-right: 0.25em;
+            content: var(--icon, 'circle');
+            margin-right: 0.15em;
             font-family: var(--wp--preset--font-family--icons) !important;
             font-weight: normal;
             font-style: normal;
-            font-size: var(--list-icon-size);
+            font-size: var(--icon-size, 1.75em);
             line-height: 1;
             letter-spacing: normal;
             text-transform: none;
@@ -35,8 +113,83 @@ html {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
-            color: var(--list-icon-color, currentColor);
+            color: var(--icon-color, #000000);
         }
     }
 
+}
+
+/*==========================================================================
+    Inspector styles for the Icon Picker Grid. 
+==========================================================================*/
+.localpro-icon-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    max-height: 240px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    box-sizing: border-box;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        aspect-ratio: 1;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: #fff;
+        cursor: pointer;
+        padding: 0;
+        min-height: 44px;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        &:hover {
+            background: #f0f0f0;
+            border-color: #007cba;
+        }
+
+        &.is-selected {
+            background: #007cba;
+            border-color: #007cba;
+
+            .material-symbols-outlined {
+                color: #fff;
+            }
+        }
+
+        .material-symbols-outlined {
+            display: block;
+            overflow: hidden;
+        }
+    }
+
+    &__empty {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: #757575;
+        font-style: italic;
+        padding: 16px 0;
+    }
+}
+
+/*----------------- Shape Divider block. -----------------*/
+.wp-block-localpro-shape-divider {
+    min-height: 20px;
+
+    &.is-selected {
+        outline: 2px solid var(--wp-admin-theme-color, #007cba);
+        outline-offset: 2px;
+    }
+
+    svg {
+        display: block;
+        width: 100%;
+    }
 }

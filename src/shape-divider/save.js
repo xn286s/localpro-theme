@@ -59,10 +59,12 @@ function generatePath(shape, offset, width, height) {
 }
 
 export default function save({ attributes }) {
-    const { shape, offset, position, height, color, flip } = attributes;
+    const { shape, offset, height, flip } = attributes;
+
 
     const blockProps = useBlockProps.save({
-        className: `shape-divider-position-${position}`,
+        ...useBlockProps.style,
+        className: 'shape-divider',
     });
 
     const path = generatePath(shape, offset, 1200, 100);
@@ -83,7 +85,7 @@ export default function save({ attributes }) {
                 style={svgStyle}
                 aria-hidden="true"
             >
-                <path d={path} fill={color} />
+                <path d={path} fill={'currentColor'} />
             </svg>
         </div>
     );

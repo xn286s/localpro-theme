@@ -1,127 +1,113 @@
 import { createHigherOrderComponent } from '@wordpress/compose';
+import { registerBlockVariation } from '@wordpress/blocks';
 import { addFilter } from '@wordpress/hooks';
-import Edit from '../icon/edit';
 
-// Hook into the core/list block styles -> add icon picker attributes
-addFilter('blocks.registerBlockType', 'localpro-list/attributes', (settings, name) => {
-    if (name !== 'core/list') {
-        return settings;
-    }
-    return {
-        ...settings,
-        attributes: {
-            ...settings.attributes,
-            iconSize: { type: 'string', default: '1.5em' },
-            iconColor: { type: 'string', default: 'var(--wp-preset--color-primary)' },
-            selectedIcon: { type: 'string', default: 'check' }
-        },
-    };
+import { __ } from '@wordpress/i18n';
+import IconPicker from './iconpicker';
+
+// Inject the icon attributes into core/list's schema
+addFilter(
+    'blocks.registerBlockType',
+    'localpro/icon-list-attributes',
+    (settings, name) => {
+        if (name !== 'core/list') { return settings; }
+        // console.log('test: blocks.getBlockType', { settings, name });
+        return {
+            ...settings,
+            attributes: {
+                ...settings.attributes,
+                selectedIcon: { type: 'string', default: `'check'` },
+                iconSize: { type: 'string', default: '1.75em' },
+                iconColor: { type: 'string', default: `'var(--wp--preset--color--primary)'` },
+            },
+        };
+    });
+
+// Register the variation
+registerBlockVariation('core/list', {
+    name: 'icon-list',
+    title: __('Icon List', 'localpro'),
+    description: __('A list with a custom icon marker.', 'localpro'),
+    icon: 'star-filled',
+    isDefault: true,
+    scope: ['inserter', 'transform'],
+
+    // Seed the custom attributes with defaults
+    attributes: {
+        className: 'is-style-icon-list',
+        selectedIcon: `'check'`,
+        iconSize: '1.75em',
+        iconColor: 'var(--wp--preset--color--primary)',
+    },
+
+    // Makes the "Is variation?" check reliable
+    isActive: (blockAttributes) => blockAttributes.className?.includes('is-style-icon-list'),
 });
 
-// Hook into core/list block controls -> add icon picker
+// Inject inspector controls — only when the variation is active
 const iconPickerControls = createHigherOrderComponent((BlockEdit) => {
     return (props) => {
-        const { name, attributes, setAttributes } = props;
+        // Early return if the variation is not active
+        if (props.name !== 'core/list') { return <BlockEdit {...props} /> };
 
-        // Early return if the block is not the List block
-        if (name !== 'core/list') return <BlockEdit {...props} />;
+        const { attributes, setAttributes } = props;
+
+        // console.log('TEST: block.BlockEdit', props);
 
         return (
             <>
                 <BlockEdit {...props} />
-                <Edit attributes={attributes} setAttributes={setAttributes} />
+                <IconPicker attributes={attributes} setAttributes={setAttributes} />
             </>
         );
     };
 }, 'iconPickerControls');
-addFilter('editor.BlockEdit', 'localpro-list/icon-picker-controls', iconPickerControls);
+addFilter('editor.BlockEdit', 'localpro/icon-picker-controls', iconPickerControls);
 
-// Hook into core/list block props -> add icon classes and styles
-const addIconProps = createHigherOrderComponent((BlockListBlock) => {
+// Show new wrapperProps.style as it is being edited
+const iconListProps = createHigherOrderComponent((BlockListBlock) => {
     return (props) => {
-        const { name, attributes } = props;
 
-        if (name !== 'core/list') return <BlockListBlock {...props} />;
-
+        // Early return if the variation is not active
+        if (props.name !== 'core/list' && props.attributes.className !== 'is-style-icon-list') { return <BlockListBlock {...props} /> };
+        const { attributes } = props;
         const { iconSize, iconColor, selectedIcon } = attributes;
-        const extraClasses = [];
-        const extraStyle = {};
-
-        if (selectedIcon) {
-            extraClasses.push('--has-icon');
-            extraStyle['--list-icon'] = '"' + selectedIcon + '"';
-        }
-
-        if (iconColor) {
-            extraClasses.push('--has-icon-color');
-            extraStyle['--list-icon-color'] = iconColor;
-        }
-
-        if (iconSize) {
-            extraClasses.push('--has-icon-size');
-            extraStyle['--list-icon-size'] = iconSize;
-        }
-
-        if (!extraClasses.length) return <BlockListBlock {...props} />;
-
-        const className = [props.className || '', ...extraClasses]
-            .filter(Boolean)
-            .join(' ');
+        // console.log('TEST: block.BlockList', props);
 
         return (
-            <BlockListBlock
-                {...props}
-                className={className}
+            <BlockListBlock {...props}
                 wrapperProps={{
                     ...(props.wrapperProps || {}),
                     style: {
                         ...(props.wrapperProps?.style || {}),
-                        ...extraStyle,
+                        '--icon': `'${selectedIcon}'`,
+                        '--icon-color': iconColor,
+                        '--icon-size': iconSize,
                     },
                 }}
             />
         );
     };
-}, 'addIconProps');
-addFilter('editor.BlockListBlock', 'localpro-list/add-icon-props', addIconProps);
+}, 'iconListProps');
+addFilter('editor.BlockListBlock', 'localpro/icon-list-save-props', iconListProps);
 
-// Save core/list icon props
+// Pass custom attributes into the saved block's wrapper props so they're accessible in CSS / frontend JS
 addFilter(
     'blocks.getSaveContent.extraProps',
     'localpro-list/save-icon-props',
     (extraProps, blockType, attributes) => {
-        if (blockType.name !== 'core/list') return extraProps;
-
         const { iconSize, iconColor, selectedIcon } = attributes;
 
-        if (selectedIcon) {
-            extraProps.className = [extraProps.className || '', '--has-icon']
-                .filter(Boolean)
-                .join(' ');
-            extraProps.style = {
-                ...(extraProps.style || {}),
-                '--list-icon': '"' + selectedIcon + '"',
-            };
-        }
+        // Early return if the variation is not active
+        if (blockType.name !== 'core/list' && attributes.className !== 'is-style-icon-list') { return extraProps };
+        // console.log('TEST: blocks.getSaveContent.extraProps', 'attributes:', { extraProps, blockType, attributes });
 
-        if (iconColor) {
-            extraProps.className = [extraProps.className || '', '--has-icon-color']
-                .filter(Boolean)
-                .join(' ');
-            extraProps.style = {
-                ...(extraProps.style || {}),
-                '--list-icon-color': iconColor,
-            };
-        }
 
-        if (iconSize) {
-            extraProps.className = [extraProps.className || '', '--has-icon-size']
-                .filter(Boolean)
-                .join(' ');
-            extraProps.style = {
-                ...(extraProps.style || {}),
-                '--list-icon-size': iconSize + 'em',
-            };
+        extraProps.style = {
+            ...(extraProps.style || {}),
+            '--icon': `'${selectedIcon}'`,
+            '--icon-color': iconColor,
+            '--icon-size': iconSize,
         }
 
         return extraProps;

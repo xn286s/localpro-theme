@@ -2,7 +2,7 @@
 /**
  * Title: About
  * Slug: localpro/about
- * Categories: localpro, about
+ * Categories: localpro, section, about
  */
 ?>
 

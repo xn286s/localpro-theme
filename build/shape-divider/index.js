@@ -12,44 +12,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
 /* harmony export */ });
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/shape-divider/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
-
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
 const SHAPE_OPTIONS = [{
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Wave', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Wave', 'localpro-shape-divider'),
   value: 'wave'
 }, {
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Curve', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Curve', 'localpro-shape-divider'),
   value: 'curve'
 }, {
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Slant', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Slant', 'localpro-shape-divider'),
   value: 'slant'
 }, {
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Triangle', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Triangle', 'localpro-shape-divider'),
   value: 'triangle'
 }, {
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrow', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Arrow', 'localpro-shape-divider'),
   value: 'arrow'
 }, {
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Zigzag', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Zigzag', 'localpro-shape-divider'),
   value: 'zigzag'
 }, {
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Tilt', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Tilt', 'localpro-shape-divider'),
   value: 'tilt'
 }, {
-  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Mountains', 'localpro-shape-divider'),
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Mountains', 'localpro-shape-divider'),
   value: 'mountains'
 }];
 function generatePath(shape, offset, width, height) {
@@ -123,13 +120,11 @@ function Edit({
   const {
     shape,
     offset,
-    position,
     height,
-    color,
     flip
   } = attributes;
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: `shape-divider-position-${position}`
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: 'shape-divider'
   });
   const svgStyle = {
     display: 'block',
@@ -138,76 +133,53 @@ function Edit({
     transform: flip ? 'scaleY(-1)' : 'none'
   };
   const path = generatePath(shape, offset, 1200, 100);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Shape Settings', 'localpro-shape-divider'),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Shape', 'localpro-shape-divider'),
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Shape Settings', 'localpro-shape-divider'),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Shape', 'localpro-shape-divider'),
           value: shape,
           options: SHAPE_OPTIONS,
           onChange: value => setAttributes({
             shape: value
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Offset', 'localpro-shape-divider'),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Offset', 'localpro-shape-divider'),
           value: offset,
           onChange: value => setAttributes({
             offset: value
           }),
           min: 0,
           max: 100,
-          help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Shifts the shape focal point horizontally.', 'localpro-shape-divider')
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Position', 'localpro-shape-divider'),
-          value: position,
-          options: [{
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top', 'localpro-shape-divider'),
-            value: 'top'
-          }, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom', 'localpro-shape-divider'),
-            value: 'bottom'
-          }],
-          onChange: value => setAttributes({
-            position: value
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Height (px)', 'localpro-shape-divider'),
+          help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Shifts the shape focal point horizontally.', 'localpro-shape-divider')
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Height (px)', 'localpro-shape-divider'),
           value: height,
           onChange: value => setAttributes({
             height: value
           }),
           min: 20,
           max: 300
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Flip Vertically', 'localpro-shape-divider'),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Flip Vertically', 'localpro-shape-divider'),
           checked: flip,
           onChange: value => setAttributes({
             flip: value
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PanelColorSettings, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'localpro-shape-divider'),
-        initialOpen: true,
-        colorSettings: [{
-          value: color,
-          onChange: val => setAttributes({
-            color: val || ''
-          }),
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'localpro-shape-divider')
-        }]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       ...blockProps,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 1200 100",
         preserveAspectRatio: "none",
         style: svgStyle,
         "aria-hidden": "true",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
           d: path,
-          fill: color
+          fill: blockProps.style.color
         })
       })
     })]
@@ -302,13 +274,12 @@ function save({
   const {
     shape,
     offset,
-    position,
     height,
-    color,
     flip
   } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: `shape-divider-position-${position}`
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.style,
+    className: 'shape-divider'
   });
   const path = generatePath(shape, offset, 1200, 100);
   const svgStyle = {
@@ -327,23 +298,11 @@ function save({
       "aria-hidden": "true",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
         d: path,
-        fill: color
+        fill: 'currentColor'
       })
     })
   });
 }
-
-/***/ },
-
-/***/ "./src/shape-divider/editor.scss"
-/*!***************************************!*\
-  !*** ./src/shape-divider/editor.scss ***!
-  \***************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
 
 /***/ },
 
@@ -403,7 +362,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"localpro/shape-divider","title":"Shape Divider Block","category":"design","icon":"art","description":"A decorative SVG shape divider block with multiple shapes, offset, position, height, color, and flip controls.","example":{"attributes":{"shape":"wave","offset":50,"position":"bottom","height":80,"color":"#0073aa","flip":false}},"attributes":{"shape":{"type":"string","default":"wave"},"offset":{"type":"number","default":50},"position":{"type":"string","default":"bottom"},"height":{"type":"number","default":80},"color":{"type":"string","default":"#1e1e1e"},"flip":{"type":"boolean","default":false}},"supports":{"html":false,"align":["full","wide"],"spacing":{"margin":true}},"textdomain":"telex-shape-divider","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"localpro/shape-divider","title":"Shape Divider Block","category":"design","icon":"art","description":"A decorative SVG shape divider block with multiple shapes, offset, position, height, color, and flip controls.","example":{"attributes":{"shape":"wave","offset":50,"position":"bottom","height":80,"color":"#0073aa","flip":false}},"attributes":{"shape":{"type":"string","default":"wave"},"offset":{"type":"number","default":50},"height":{"type":"number","default":80},"flip":{"type":"boolean","default":false}},"supports":{"html":false,"align":["full","wide"],"color":{"background":true,"text":true},"spacing":{"margin":true}},"textdomain":"localpro","editorScript":"file:./index.js"}');
 
 /***/ }
 

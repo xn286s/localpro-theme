@@ -1,11 +1,30 @@
-/*!*********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/icon/editor.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************/
-/* ==========================================================================*/
-/* Material Symbols Outlined for the editor */
-/* ==========================================================================*/
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+/* ========================================================================== */
+/* Shared frontend styles for the editor */
+/* ========================================================================== */
+@view-transition {
+  navigation: auto;
+}
+/*----------------- Mobile -----------------*/
+@media screen and (max-width: 768px) {
+  .wp-block-heading,
+  p {
+    text-align: center !important;
+  }
+  .lead-form {
+    margin-top: 0 !important;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  overflow-wrap: break-word;
+  font-size: 62.5%;
+  accent-color: var(--wp--preset--color--primary);
+}
 .material-symbols-outlined {
-  font-family: var(--wp--preset--font-family--icons);
+  font-family: var(--wp--preset--font-family--icons) !important;
   font-weight: normal;
   font-style: normal;
   display: inline-block;
@@ -20,9 +39,74 @@
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
 }
-/*==========================================================================*/
-/* Editor-only styles for the Icon Picker. */
-/*==========================================================================*/
+/*----------------- Theme Styles -----------------*/
+.is-preheading {
+  font-size: var(--wp--preset--font-size--label);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.is-glass--dark {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.33);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.is-glass--light {
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.33);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.is-sticky {
+  position: sticky;
+  top: 0;
+}
+/*----------------- Service Post Query Loop Styles -----------------*/
+.wp-block-post.service {
+  overflow: hidden;
+}
+.wp-block-post.service img {
+  transition: transform 0.5s ease;
+}
+.wp-block-post.service:hover img {
+  transform: scale(1.25);
+}
+.wp-block-post.service:hover {
+  box-shadow: var(--wp--preset--shadow--lifted);
+}
+/*----------------- List Marker Icon -----------------*/
+.wp-block-list.is-style-icon-list {
+  list-style: none !important;
+}
+.wp-block-list.is-style-icon-list li.wp-block-list-item {
+  position: relative;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+}
+.wp-block-list.is-style-icon-list li.wp-block-list-item::before {
+  content: var(--icon, "circle");
+  margin-left: 0.15em;
+  font-family: var(--wp--preset--font-family--icons) !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--icon-size, 1.75em);
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: rtl;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: var(--icon-color, #000000);
+}
+/*==========================================================================
+    Inspector styles for the Icon Picker Grid. 
+==========================================================================*/
 .localpro-icon-picker-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -72,4 +156,16 @@
   color: #757575;
   font-style: italic;
   padding: 16px 0;
+}
+/*----------------- Shape Divider block. -----------------*/
+.wp-block-localpro-shape-divider {
+  min-height: 20px;
+}
+.wp-block-localpro-shape-divider.is-selected {
+  outline: 2px solid var(--wp-admin-theme-color, #007cba);
+  outline-offset: 2px;
+}
+.wp-block-localpro-shape-divider svg {
+  display: block;
+  width: 100%;
 }

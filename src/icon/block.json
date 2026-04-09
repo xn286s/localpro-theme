@@ -9,7 +9,7 @@
     "example": {
         "attributes": {
             "selectedIcon": "home",
-            "iconSize": "48",
+            "iconSize": "4.8",
             "iconColor": "var(--wp--preset--color--primary)"
         }
     },
@@ -29,13 +29,14 @@
     },
     "supports": {
         "html": false,
-        "align": true,
         "spacing": {
             "margin": true,
             "padding": true
+        },
+        "typography": {
+            "textAlign": true
         }
     },
     "textdomain": "localpro",
-    "editorScript": "file:./index.js",
-    "editorStyle": "file:./index.css"
+    "editorScript": "file:./index.js"
 }

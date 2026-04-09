@@ -1,8 +1,7 @@
 {
   "name": "localpro",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start",
@@ -20,6 +19,7 @@
   },
   "homepage": "https://github.com/xn286s/localpro-theme#readme",
   "devDependencies": {
-    "@wordpress/scripts": "^31.7.0"
+    "@wordpress/scripts": "^31.7.0",
+    "npm-run-all": "^4.1.5"
   }
 }

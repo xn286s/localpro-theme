@@ -2,35 +2,35 @@
 /**
  * Title: Plan
  * Slug: localpro/plan
- * Categories: localpro, plan
+ * Categories: localpro, section, plan
  */
 ?>
 
-<!-- wp:group {"tagName":"section","metadata":{"name":"Plan"},"backgroundColor":"tint","layout":{"type":"constrained"}} -->
-<section class="wp-block-group has-tint-background-color has-background"><!-- wp:columns -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"Plan"},"style":{"elements":{"link":{"color":{"text":"var:preset|color|surface"}}}},"backgroundColor":"shade","textColor":"surface","layout":{"type":"constrained"}} -->
+<section class="wp-block-group has-surface-color has-shade-background-color has-text-color has-background has-link-color"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"layout":{"type":"constrained"}} -->
-<div class="wp-block-column"><!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"},"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}},"textColor":"primary","fontSize":"label","fontFamily":"display"} -->
-<p class="has-text-align-center has-primary-color has-text-color has-link-color has-display-font-family has-label-font-size" style="text-transform:uppercase">4 easy steps and your project is handled</p>
+<div class="wp-block-column"><!-- wp:paragraph {"align":"center","className":"is-preheading reveal","style":{"elements":{"link":{"color":{"text":"var:preset|color|complimentary"}}}},"textColor":"complimentary"} -->
+<p class="has-text-align-center is-preheading reveal has-complimentary-color has-text-color has-link-color">4 easy steps and your project is handled</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"textAlign":"center","className":"delay-1","style":{"spacing":{"margin":{"top":"0px"}}}} -->
-<h2 class="wp-block-heading has-text-align-center delay-1" style="margin-top:0px">Getting Professional [GBP Primary] Service Doesn't Have to Be Complicated</h2>
+<!-- wp:heading {"textAlign":"center","className":"reveal","style":{"spacing":{"margin":{"top":"0px"}},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white"} -->
+<h2 class="wp-block-heading has-text-align-center reveal has-white-color has-text-color has-link-color" style="margin-top:0px">Getting Professional [GBP Primary] Service Doesn't Have to Be Complicated</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","fontSize":"label"} -->
-<p class="has-text-align-center has-label-font-size"><strong>Our Goal is Simple:</strong><br>Fast, Clear, and Stress-Free [Service] Done Right</p>
+<!-- wp:paragraph {"align":"center","className":"reveal","fontSize":"label"} -->
+<p class="has-text-align-center reveal has-label-font-size"><strong>Our Goal is Simple:</strong><br>Fast, Clear, and Stress-Free [Service] Done Right</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
 <!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"className":"reveal"} -->
-<div class="wp-block-column reveal"><!-- wp:paragraph {"align":"center","className":"no-anim","style":{"typography":{"lineHeight":"1"}},"fontSize":"title"} -->
-<p class="has-text-align-center no-anim has-title-font-size" style="line-height:1">1️⃣</p>
-<!-- /wp:paragraph -->
+<div class="wp-block-columns"><!-- wp:column {"className":"reveal","layout":{"type":"default"}} -->
+<div class="wp-block-column reveal"><!-- wp:localpro/icon {"selectedIcon":"call","iconColor":"hsl(calc(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue) + 180), 70%, 50%)","className":"aligncenter","style":{"typography":{"textAlign":"center"}}} -->
+<div class="wp-block-localpro-icon has-text-align-center aligncenter"><span class="material-symbols-outlined" style="font-size:4.8rem;color:hsl(calc(var(--wp--custom--hue) + 180), 70%, 50%);line-height:1">call</span></div>
+<!-- /wp:localpro/icon -->
 
-<!-- wp:heading {"textAlign":"center","level":3,"className":"no-anim"} -->
-<h3 class="wp-block-heading has-text-align-center no-anim">Reach Out to Us</h3>
+<!-- wp:heading {"textAlign":"center","level":3,"className":"no-anim","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white"} -->
+<h3 class="wp-block-heading has-text-align-center no-anim has-white-color has-text-color has-link-color">Reach Out to Us</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"no-anim"} -->
@@ -38,13 +38,13 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"className":"reveal delay-1"} -->
-<div class="wp-block-column reveal delay-1"><!-- wp:paragraph {"align":"center","className":"no-anim","style":{"typography":{"lineHeight":"1"}},"fontSize":"title"} -->
-<p class="has-text-align-center no-anim has-title-font-size" style="line-height:1">2️⃣</p>
-<!-- /wp:paragraph -->
+<!-- wp:column {"className":"reveal"} -->
+<div class="wp-block-column reveal"><!-- wp:localpro/icon {"selectedIcon":"calendar_month","iconColor":"hsl(calc(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue) + 180), 70%, 50%)","className":"aligncenter","style":{"typography":{"textAlign":"center"}}} -->
+<div class="wp-block-localpro-icon has-text-align-center aligncenter"><span class="material-symbols-outlined" style="font-size:4.8rem;color:hsl(calc(var(--wp--custom--hue) + 180), 70%, 50%);line-height:1">calendar_month</span></div>
+<!-- /wp:localpro/icon -->
 
-<!-- wp:heading {"textAlign":"center","level":3,"className":"no-anim"} -->
-<h3 class="wp-block-heading has-text-align-center no-anim">Schedule [Service]</h3>
+<!-- wp:heading {"textAlign":"center","level":3,"className":"no-anim","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white"} -->
+<h3 class="wp-block-heading has-text-align-center no-anim has-white-color has-text-color has-link-color">Schedule [Service]</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"no-anim"} -->
@@ -52,31 +52,17 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"className":"reveal delay-2"} -->
-<div class="wp-block-column reveal delay-2"><!-- wp:paragraph {"align":"center","className":"no-anim","style":{"typography":{"lineHeight":"1"}},"fontSize":"title"} -->
-<p class="has-text-align-center no-anim has-title-font-size" style="line-height:1">3️⃣</p>
-<!-- /wp:paragraph -->
+<!-- wp:column {"className":"reveal"} -->
+<div class="wp-block-column reveal"><!-- wp:localpro/icon {"selectedIcon":"celebration","iconColor":"hsl(calc(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue) + 180), 70%, 50%)","className":"aligncenter","style":{"typography":{"textAlign":"center"}}} -->
+<div class="wp-block-localpro-icon has-text-align-center aligncenter"><span class="material-symbols-outlined" style="font-size:4.8rem;color:hsl(calc(var(--wp--custom--hue) + 180), 70%, 50%);line-height:1">celebration</span></div>
+<!-- /wp:localpro/icon -->
 
-<!-- wp:heading {"textAlign":"center","level":3,"className":"no-anim"} -->
-<h3 class="wp-block-heading has-text-align-center no-anim">We Do the Work</h3>
+<!-- wp:heading {"textAlign":"center","level":3,"className":"no-anim","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white"} -->
+<h3 class="wp-block-heading has-text-align-center no-anim has-white-color has-text-color has-link-color">Enjoy Premium [Service]</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"no-anim"} -->
 <p class="has-text-align-center no-anim">Our licensed, professional team handles everything cleanly, carefully, and on time.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"className":"reveal delay-3"} -->
-<div class="wp-block-column reveal delay-3"><!-- wp:paragraph {"align":"center","className":"no-anim","style":{"typography":{"lineHeight":"1"}},"fontSize":"title"} -->
-<p class="has-text-align-center no-anim has-title-font-size" style="line-height:1">4️⃣</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"textAlign":"center","level":3,"className":"no-anim"} -->
-<h3 class="wp-block-heading has-text-align-center no-anim">Enjoy The Results</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"align":"center","className":"no-anim"} -->
-<p class="has-text-align-center no-anim">No mess, no mystery charges, no stress. Just a job done right and results you'll love.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>

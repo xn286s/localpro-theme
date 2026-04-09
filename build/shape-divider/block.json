@@ -25,17 +25,9 @@
       "type": "number",
       "default": 50
     },
-    "position": {
-      "type": "string",
-      "default": "bottom"
-    },
     "height": {
       "type": "number",
       "default": 80
-    },
-    "color": {
-      "type": "string",
-      "default": "#1e1e1e"
     },
     "flip": {
       "type": "boolean",
@@ -48,11 +40,14 @@
       "full",
       "wide"
     ],
+    "color": {
+      "background": true,
+      "text": true
+    },
     "spacing": {
       "margin": true
     }
   },
-  "textdomain": "telex-shape-divider",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css"
+  "textdomain": "localpro",
+  "editorScript": "file:./index.js"
 }
