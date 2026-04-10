@@ -144,8 +144,10 @@ header {
   font-size: var(--wp--preset--font-size--label);
   font-weight: 500;
   letter-spacing: 1px;
-  line-height: 1;
   text-transform: uppercase;
+}
+.is-preheading + .wp-block-heading {
+  margin-top: 0;
 }
 .is-glass--dark {
   backdrop-filter: blur(4px);
@@ -165,22 +167,24 @@ header {
 .wp-block-post.service {
   overflow: hidden;
 }
+.wp-block-post.service:hover {
+  box-shadow: var(--wp--preset--shadow--lifted);
+}
 .wp-block-post.service img {
   transition: transform 0.5s ease;
 }
 .wp-block-post.service:hover img {
   transform: scale(1.25);
 }
-.wp-block-post.service:hover {
-  box-shadow: var(--wp--preset--shadow--lifted);
+.wp-block-post.service .wp-block-cover__inner-container {
+  position: static;
+  z-index: 1;
 }
-/* Make the entire card clickable to the single post */
-.wp-block-post.service .wp-block-post-title a::after {
+.wp-block-post.service .wp-block-cover__inner-container .wp-block-post-title a::after {
   content: "";
-  cursor: pointer;
   inset: 0;
   position: absolute;
-  z-index: 100;
+  z-index: 2;
 }
 
 /*# sourceMappingURL=index.css.map*/

@@ -55,8 +55,11 @@ header {
     font-size: var(--wp--preset--font-size--label);
     font-weight: 500;
     letter-spacing: 1px;
-    line-height: 1;
     text-transform: uppercase;
+
+    +.wp-block-heading {
+        margin-top: 0;
+    }
 }
 
 .is-glass--dark {
