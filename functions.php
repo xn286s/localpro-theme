@@ -36,7 +36,6 @@ class LocalProTheme {
 
     public function after_setup_theme() {
         add_theme_support('editor-styles'); // Tell WordPress the theme supports editor styles
-        add_theme_support('dark-editor-style');
         add_theme_support('title-tag');
         remove_theme_support('core-block-patterns'); // Disable default patterns
     }

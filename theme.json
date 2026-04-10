@@ -46,22 +46,22 @@
                 {
                     "name": "Tint",
                     "slug": "tint",
-                    "color": "hsl(var(--wp--custom--hue), 10%, 75%)"
+                    "color": "hsl(var(--wp--custom--hue), 20%, 75%)"
                 },
                 {
                     "name": "Mid",
                     "slug": "mid",
-                    "color": "hsl(var(--wp--custom--hue), 10%, 50%)"
+                    "color": "hsl(var(--wp--custom--hue), 20%, 50%)"
                 },
                 {
                     "name": "Shade",
                     "slug": "shade",
-                    "color": "hsl(var(--wp--custom--hue), 10%, 25%)"
+                    "color": "hsl(var(--wp--custom--hue), 20%, 25%)"
                 }
             ]
         },
         "custom": {
-            "hue": "0"
+            "hue": "270"
         },
         "layout": {
             "contentSize": "1280px",
@@ -89,7 +89,8 @@
                     "fontFace": [
                         {
                             "fontFamily": "Inter",
-                            "fontStyle": "normal",
+                            "fontWeight": "100...900",
+                            "fontStyle": "normal, italic",
                             "fontDisplay": "swap",
                             "src": [
                                 "file:./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
@@ -104,6 +105,8 @@
                     "fontFace": [
                         {
                             "fontFamily": "Montserrat",
+                            "fontWeight": "100...900",
+                            "fontStyle": "normal, italic",
                             "fontDisplay": "swap",
                             "src": [
                                 "file:./assets/fonts/Montserrat-VariableFont_wght.ttf"
@@ -258,7 +261,7 @@
             }
         },
         "color": {
-            "background": "#FFFFFF",
+            "background": "var(--wp--preset--color--surface)",
             "text": "var(--wp--preset--color--shade)"
         },
         "elements": {

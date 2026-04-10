@@ -131,6 +131,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     requestAnimationFrame(update);
   }
+
+  // Header hide on scroll
+  const header = document.querySelector('header'); // adjust selector as needed
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY) {
+      // Scrolling down — hide header
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      // Scrolling up — reveal header
+      header.style.transform = 'translateY(0)';
+    }
+    lastScrollY = currentScrollY;
+  });
 });
 })();
 

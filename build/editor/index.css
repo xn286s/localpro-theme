@@ -23,6 +23,13 @@ html {
   font-size: 62.5%;
   accent-color: var(--wp--preset--color--primary);
 }
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 .material-symbols-outlined {
   font-family: var(--wp--preset--font-family--icons) !important;
   font-weight: normal;
@@ -44,6 +51,7 @@ html {
   font-size: var(--wp--preset--font-size--label);
   font-weight: 500;
   letter-spacing: 1px;
+  line-height: 1;
   text-transform: uppercase;
 }
 .is-glass--dark {
