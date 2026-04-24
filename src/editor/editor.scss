@@ -1,9 +1,6 @@
 /* ========================================================================== */
-/* Shared frontend styles for the editor */
+/* Certain frontend styles within the editor canvas */
 /* ========================================================================== */
-@view-transition {
-    navigation: auto;
-}
 
 /*----------------- Mobile -----------------*/
 @media screen and (max-width: 768px) {
@@ -26,28 +23,8 @@ html {
 }
 
 header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
     z-index: 1000;
-}
-
-.material-symbols-outlined {
-    font-family: var(--wp--preset--font-family--icons) !important;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
+    transition: transform 0.3s ease-in-out;
 }
 
 /*----------------- Theme Styles -----------------*/
@@ -131,6 +108,38 @@ header {
 
 }
 
+/*----------------- Shape Divider block. -----------------*/
+.wp-block-localpro-shape-divider {
+    min-height: 20px;
+
+    &.is-selected {
+        outline: 2px solid var(--wp-admin-theme-color, #007cba);
+        outline-offset: 2px;
+    }
+
+    svg {
+        display: block;
+        width: 100%;
+    }
+}
+
+.material-symbols-outlined {
+    font-family: var(--wp--preset--font-family--icons) !important;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
 /*==========================================================================
     Inspector styles for the Icon Picker Grid. 
 ==========================================================================*/
@@ -192,16 +201,16 @@ header {
 }
 
 /*----------------- Shape Divider block. -----------------*/
-.wp-block-localpro-shape-divider {
-    min-height: 20px;
+// .wp-block-localpro-shape-divider {
+//     min-height: 20px;
 
-    &.is-selected {
-        outline: 2px solid var(--wp-admin-theme-color, #007cba);
-        outline-offset: 2px;
-    }
+//     &.is-selected {
+//         outline: 2px solid var(--wp-admin-theme-color, #007cba);
+//         outline-offset: 2px;
+//     }
 
-    svg {
-        display: block;
-        width: 100%;
-    }
-}
+//     svg {
+//         display: block;
+//         width: 100%;
+//     }
+// }

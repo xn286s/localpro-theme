@@ -65,19 +65,9 @@ function generatePath(shape, offset, width, height) {
       {
         return `M0 ${h} L0 ${h * 0.6} Q${o} ${-h * 0.2} ${w} ${h * 0.6} L${w} ${h} Z`;
       }
-    case 'slant':
-      {
-        const slantY = offset / 100 * h;
-        return `M0 ${h} L0 ${slantY} L${w} ${h - slantY} L${w} ${h} Z`;
-      }
     case 'triangle':
       {
         return `M0 ${h} L${o} 0 L${w} ${h} Z`;
-      }
-    case 'arrow':
-      {
-        const arrowW = w * 0.08;
-        return `M0 ${h} L${o - arrowW} ${h} L${o} 0 L${o + arrowW} ${h} L${w} ${h} L${o} ${h * 0.35} Z`;
       }
     case 'zigzag':
       {
@@ -94,11 +84,6 @@ function generatePath(shape, offset, width, height) {
         }
         d += ` L${w} ${baseY} Z`;
         return d;
-      }
-    case 'tilt':
-      {
-        const tiltH = offset / 100 * h * 0.9;
-        return `M0 ${h} L0 ${tiltH} L${w} ${h - tiltH} L${w} ${h} Z`;
       }
     case 'mountains':
       {
@@ -220,19 +205,9 @@ function generatePath(shape, offset, width, height) {
       {
         return `M0 ${h} L0 ${h * 0.6} Q${o} ${-h * 0.2} ${w} ${h * 0.6} L${w} ${h} Z`;
       }
-    case 'slant':
-      {
-        const slantY = offset / 100 * h;
-        return `M0 ${h} L0 ${slantY} L${w} ${h - slantY} L${w} ${h} Z`;
-      }
     case 'triangle':
       {
         return `M0 ${h} L${o} 0 L${w} ${h} Z`;
-      }
-    case 'arrow':
-      {
-        const arrowW = w * 0.08;
-        return `M0 ${h} L${o - arrowW} ${h} L${o} 0 L${o + arrowW} ${h} L${w} ${h} L${o} ${h * 0.35} Z`;
       }
     case 'zigzag':
       {
@@ -249,11 +224,6 @@ function generatePath(shape, offset, width, height) {
         }
         d += ` L${w} ${baseY} Z`;
         return d;
-      }
-    case 'tilt':
-      {
-        const tiltH = offset / 100 * h * 0.9;
-        return `M0 ${h} L0 ${tiltH} L${w} ${h - tiltH} L${w} ${h} Z`;
       }
     case 'mountains':
       {

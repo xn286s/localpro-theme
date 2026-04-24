@@ -21,17 +21,17 @@
                 {
                     "name": "Primary",
                     "slug": "primary",
-                    "color": "hsl(var(--wp--custom--hue), 60%, 50%)"
+                    "color": "hsl(var(--wp--custom--hue), 50%, 50%)"
                 },
                 {
                     "name": "Accent",
                     "slug": "accent",
-                    "color": "hsl(calc(var(--wp--custom--hue) + 30), 60%, 50%)"
+                    "color": "hsl(calc(var(--wp--custom--hue) + 30), 50%, 50%)"
                 },
                 {
                     "name": "Complimentary",
                     "slug": "complimentary",
-                    "color": "hsl(calc(var(--wp--custom--hue) + 180), 60%, 50%)"
+                    "color": "hsl(calc(var(--wp--custom--hue) + 180), 50%, 50%)"
                 },
                 {
                     "name": "Surface",
@@ -185,10 +185,10 @@
                 "spacing": {
                     "blockGap": "2rem",
                     "padding": {
-                        "bottom": "0.8rem",
-                        "left": "0.8rem",
-                        "right": "0.8rem",
-                        "top": "0.8rem"
+                        "bottom": "1rem",
+                        "left": "1rem",
+                        "right": "1rem",
+                        "top": "1rem"
                     }
                 }
             },
@@ -196,10 +196,10 @@
                 "spacing": {
                     "blockGap": "2rem",
                     "padding": {
-                        "bottom": "0.8rem",
-                        "left": "0.8rem",
-                        "right": "0.8rem",
-                        "top": "0.8rem"
+                        "bottom": "1rem",
+                        "left": "1rem",
+                        "right": "1rem",
+                        "top": "1rem"
                     }
                 }
             },

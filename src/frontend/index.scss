@@ -31,10 +31,6 @@ html {
 }
 
 header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
 }
@@ -91,7 +87,6 @@ header {
     }
 }
 
-
 /*----------------- Shape Divider -----------------*/
 .wp-block-localpro-shape-divider {
     width: 100%;
@@ -119,7 +114,6 @@ header {
     }
 
 }
-
 
 /*----------------- Scroll Reveal Animation -----------------*/
 .reveal {
@@ -217,6 +211,53 @@ header {
             position: absolute;
             z-index: 2;
         }
+    }
+
+}
+
+.marquee {
+    width: 100%;
+    position: relative;
+
+    /* clips the track here — no page scroll */
+    overflow: hidden;
+
+    /* Fade out the track at the edges */
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+
+    .track {
+        // display: flex;
+        /* grows as wide as all logos need */
+        width: max-content;
+        animation: scroll 20s linear infinite;
+        will-change: transform;
+    }
+
+    /* Reversed variant */
+    .track.reverse {
+        animation-direction: reverse;
+    }
+
+    /* Pause on hover */
+    &:hover .track {
+        animation-play-state: paused;
+    }
+
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        /* exactly one set width */
+        transform: translateX(-50%);
     }
 
 }

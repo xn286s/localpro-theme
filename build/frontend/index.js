@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   reveals.forEach(el => scrollRevealObserver.observe(el));
 
-  // Counter
+  // Number Counter
   const counters = document.querySelectorAll(".counter");
   if (!counters.length) return;
   if (!("IntersectionObserver" in window)) {
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }, {
-    threshold: 0.4 // triggers when 40% visible
+    threshold: 0.5 // triggers when 50% visible
   });
   counters.forEach(counter => counterObserver.observe(counter));
   function startCounter(counter) {
@@ -133,16 +133,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Header hide on scroll
-  const header = document.querySelector('header'); // adjust selector as needed
+  const header = document.querySelector('header');
   let lastScrollY = window.scrollY;
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY) {
-      // Scrolling down — hide header
-      header.style.transform = 'translateY(-100%)';
+      header.style.position = 'sticky';
+      header.style.top = '0';
+      header.style.transform = 'translateY(-100%)'; // Scrolling down — hide header
     } else {
-      // Scrolling up — reveal header
-      header.style.transform = 'translateY(0)';
+      header.style.transform = 'translateY(0)'; // Scrolling up — reveal header
     }
     lastScrollY = currentScrollY;
   });

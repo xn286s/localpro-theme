@@ -52,7 +52,7 @@ class LocalProTheme {
     }
     
     public function enqueue_block_assets() {
-        wp_enqueue_style('localpro-inspector-styles', THEME_DIR_URI . '/build/editor/index.css', [], null);
+        wp_enqueue_style('localpro-editor-styles', THEME_DIR_URI . '/build/editor/index.css', [], null);
 
         // Block variations and custom controls
         wp_enqueue_script('localpro-editor-scripts', THEME_DIR_URI . '/build/editor/index.js', ['wp-blocks', 'wp-block-editor', 'wp-components', 'wp-compose', 'wp-hooks', 'wp-element', 'wp-i18n'], null, true);
