@@ -14,6 +14,24 @@
             "title": "Blank"
         }
     ],
+    "patterns": [
+        "localpro/about",
+        "localpro/contact",
+        "localpro/featured-services",
+        "localpro/guide",
+        "localpro/hero",
+        "localpro/page-contact",
+        "localpro/page-home",
+        "localpro/page-service",
+        "localpro/page-service-areas",
+        "localpro/plan",
+        "localpro/reviews",
+        "localpro/stakes",
+        "localpro/sectionbreak-cta",
+        "localpro/sectionbreak-logo",
+        "localpro/value-stack",
+        "localpro/why-choose-localpro"
+    ],
     "settings": {
         "appearanceTools": true,
         "color": {
