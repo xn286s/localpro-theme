@@ -1,0 +1,368 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Business Settings Admin — localpro theme
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.lp-biz-wrap {
+    max-width: 980px;
+}
+
+.lp-biz-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.lp-biz-heading .dashicons {
+    font-size: 1.7rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    color: #2271b1;
+}
+
+
+/* ── Tabs ────────────────────────────────────────────────────────────────── */
+
+.lp-biz-tab-pane {
+    display: none;
+}
+
+.lp-biz-tab-pane.is-active {
+    display: block;
+}
+
+.lp-biz-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-bottom: 1px solid #c3c4c7;
+    margin-bottom: 1.75rem;
+}
+
+.lp-biz-tab {
+    display: inline-block;
+    padding: 9px 16px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #50575e;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    margin-bottom: -1px;
+    background: transparent;
+    transition: color 0.12s;
+}
+
+.lp-biz-tab:hover {
+    color: #2271b1;
+}
+
+.lp-biz-tab.is-active {
+    background: #f0f0f1;
+    border-color: #c3c4c7;
+    border-bottom-color: #f0f0f1;
+    color: #1d2327;
+    font-weight: 600;
+}
+
+
+/* ── Section headers ─────────────────────────────────────────────────────── */
+
+.lp-biz-section-header {
+    margin: 2rem 0 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid #e2e4e7;
+}
+
+.lp-biz-section-header:first-child {
+    margin-top: 0;
+}
+
+.lp-biz-section-header h2 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1d2327;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 4px;
+}
+
+.lp-biz-section-header p {
+    margin: 0;
+    color: #646970;
+    font-size: 12px;
+}
+
+
+/* ── Field grids ─────────────────────────────────────────────────────────── */
+
+.lp-biz-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.lp-biz-fields--2col {
+    grid-template-columns: 1fr 1fr;
+}
+
+.lp-biz-fields--checkboxes {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+
+/* ── Individual field ────────────────────────────────────────────────────── */
+
+.lp-biz-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lp-biz-field>label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.lp-biz-field input[type="text"],
+.lp-biz-field input[type="email"],
+.lp-biz-field input[type="url"],
+.lp-biz-field textarea,
+.lp-biz-field select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.lp-biz-field .description {
+    font-size: 12px;
+    color: #646970;
+    margin: 0;
+    font-style: normal;
+}
+
+/* Checkbox field */
+.lp-biz-field--checkbox {
+    justify-content: center;
+}
+
+.lp-biz-field--checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 13px;
+    color: #1d2327;
+}
+
+.lp-biz-field--checkbox input[type="checkbox"] {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Character counter */
+.lp-char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: #646970;
+    margin-top: 4px !important;
+}
+
+.lp-char-counter.is-over-limit {
+    color: #d63638;
+    font-weight: 600;
+}
+
+
+/* ── Business hours table ────────────────────────────────────────────────── */
+
+.lp-biz-hours-table {
+    border-collapse: collapse;
+    margin-bottom: 0.5rem;
+    table-layout: fixed;
+}
+
+.lp-biz-hours-table th {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #646970;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.lp-biz-hours-table td {
+    padding: 7px 12px;
+    vertical-align: middle;
+}
+
+.lp-col-day {
+    width: 110px;
+}
+
+.lp-col-closed {
+    width: 70px;
+    text-align: center;
+}
+
+.lp-col-time {
+    width: auto;
+}
+
+.lp-col-allday {
+    width: 70px;
+    text-align: center;
+}
+
+.lp-biz-hours-table .lp-col-closed,
+.lp-biz-hours-table .lp-col-allday {
+    text-align: center;
+}
+
+.lp-biz-hours-table .lp-col-closed input,
+.lp-biz-hours-table .lp-col-allday input {
+    margin: 0;
+}
+
+.lp-hours-time {
+    width: 110px !important;
+}
+
+/* Closed row dimming */
+.lp-biz-hours-row.is-closed .lp-hours-time {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.lp-biz-hours-row.is-24hr .lp-hours-time {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+
+/* ── Save bar ────────────────────────────────────────────────────────────── */
+
+.lp-biz-actions {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #c3c4c7;
+}
+
+/* ── Places autofill panel ───────────────────────────────────────────────── */
+
+.lp-places-autofill-panel {
+    background: #f6f7f7;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 1.5rem;
+}
+
+.lp-places-autofill-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.lp-places-autofill-header .dashicons {
+    color: #2271b1;
+    flex-shrink: 0;
+}
+
+.lp-places-autofill-header strong {
+    font-size: 13px;
+    color: #1d2327;
+}
+
+.lp-autofill-hint {
+    font-size: 12px;
+    color: #646970;
+}
+
+.lp-autofill-note {
+    font-size: 11px;
+    color: #646970;
+    margin: 10px 0 0;
+    font-style: italic;
+}
+
+/* Search input + dropdown wrapper */
+.lp-places-search-wrap {
+    position: relative;
+    max-width: 480px;
+}
+
+#lp-places-search {
+    width: 100%;
+    font-size: 14px;
+    padding: 6px 10px;
+    box-sizing: border-box;
+}
+
+/* Dropdown */
+.lp-places-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 2px 0 0;
+    padding: 0;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.lp-places-result {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 9px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f1;
+    font-size: 13px;
+}
+
+.lp-places-result:last-child {
+    border-bottom: none;
+}
+
+.lp-places-result:hover {
+    background: #f0f6fc;
+}
+
+.lp-places-result strong {
+    color: #1d2327;
+}
+
+.lp-places-result span {
+    font-size: 11px;
+    color: #646970;
+}
+
+/* Status messages */
+.lp-places-status {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: #646970;
+}
+
+.lp-places-status.is-error {
+    color: #d63638;
+}
+
+.lp-places-status.is-success {
+    color: #00a32a;
+    font-weight: 600;
+}

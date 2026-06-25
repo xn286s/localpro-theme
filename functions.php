@@ -1,93 +1,101 @@
-<?php
-
-if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
-}
+<?php if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 define('TEXT_DOMAIN', 'localpro');
 define('THEME_DIR', get_template_directory());
 define('THEME_DIR_URI', get_template_directory_uri());
 
-class LocalProTheme {
+class LocalProTheme
+{
 
     private static $instance = null;
 
-    public function __construct() {
+    public function __construct()
+    {
+        // include all necessary files
+        require_once THEME_DIR . '/inc/admin/business-settings.php';
+        require_once THEME_DIR . '/inc/admin/places-proxy.php';
+
         // === Hooks ===
         add_action('after_setup_theme', [$this, 'after_setup_theme']);
         add_action('init', [$this, 'init']);
-        add_action('enqueue_block_assets', [$this, 'enqueue_block_assets']); // Load block assets only when the block is used (performance optimization)
-        add_action('wp_enqueue_scripts', [$this, 'handle_frontend_scripts']);
+        add_action('enqueue_block_editor_assets', [$this, 'load_editor_scripts']);
+        add_action('wp_enqueue_scripts', [$this, 'load_frontend_scripts']);
 
-        
+
         // === Filters ===
         add_filter('should_load_remote_block_patterns', '__return_false');
-        
-        $this->performance_optimizations();
 
+        $this->performance_optimizations();
     }
 
-    public static function get_instance() {
+    public static function get_instance()
+    {
         if (self::$instance === null) {
             self::$instance = new self();
         }
         return self::$instance;
     }
 
-    public function after_setup_theme() {
+    public function after_setup_theme()
+    {
         add_theme_support('editor-styles'); // Tell WordPress the theme supports editor styles
         add_theme_support('title-tag');
         remove_theme_support('core-block-patterns'); // Disable default patterns
     }
 
-    public function init() {
+    public function init()
+    {
         $this->register_blocks();
         $this->register_pattern_categories();
         $this->custom_post_types();
     }
 
-    public function handle_frontend_scripts() {
+    public function load_editor_scripts()
+    {
+        wp_enqueue_script('localpro-editor-scripts', THEME_DIR_URI . '/build/editor/index.js', ['wp-blocks', 'wp-block-editor', 'wp-components', 'wp-compose', 'wp-hooks', 'wp-element', 'wp-i18n'], null, true);
+
+        wp_enqueue_style('localpro-editor-styles', THEME_DIR_URI . '/build/editor/index.css', [], null);
+    }
+
+    public function load_frontend_scripts()
+    {
         wp_enqueue_style('localpro-frontend-styles', THEME_DIR_URI . '/build/frontend/index.css', [], null);
         wp_enqueue_script('localpro-frontend-scripts', THEME_DIR_URI . '/build/frontend/index.js', [], null, true);
     }
-    
-    public function enqueue_block_assets() {
-        wp_enqueue_style('localpro-editor-styles', THEME_DIR_URI . '/build/editor/index.css', [], null);
 
-        // Block variations and custom controls
-        wp_enqueue_script('localpro-editor-scripts', THEME_DIR_URI . '/build/editor/index.js', ['wp-blocks', 'wp-block-editor', 'wp-components', 'wp-compose', 'wp-hooks', 'wp-element', 'wp-i18n'], null, true);
-    }
-
-    public function register_blocks() {
-        register_block_type_from_metadata(THEME_DIR . '/build/icon');
+    public function register_blocks()
+    {
         register_block_type_from_metadata(THEME_DIR . '/build/shape-divider');
+        // Logo/reviews scroller
     }
 
-    public function register_pattern_categories() {
+    public function register_pattern_categories()
+    {
         $categories = [
             'localpro',
-            'guide',
             'hero',
-            'one-column',
-            'page',
-            'plan',
-            'section',
-            'services',
             'stakes',
-            'three-column',
+            'value-stack',
+            'guide',
+            'plan',
+            'services',
+            'section',
+            'one-column',
             'two-column',
-            'value-stack'
+            'three-column',
+            'page'
         ];
 
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             register_block_pattern_category($category, [
-                'label' => __( ucfirst($category), TEXT_DOMAIN ),
-                'description' => __( ucfirst($category) . ' patterns', TEXT_DOMAIN ),
+                'label' => __(ucfirst($category), TEXT_DOMAIN),
+                'description' => __(ucfirst($category) . ' patterns', TEXT_DOMAIN),
             ]);
         }
     }
 
-    public function custom_post_types() {
+    public function custom_post_types()
+    {
         $post_types = [
             'service' => [
                 'label' => __('Service', TEXT_DOMAIN),
@@ -101,16 +109,16 @@ class LocalProTheme {
             ],
         ];
 
-        foreach($post_types as $post_type => $args) {
+        foreach ($post_types as $post_type => $args) {
             register_post_type($post_type, $args);
         }
     }
 
-    public function performance_optimizations() {
-
+    public function performance_optimizations()
+    {
         add_action('wp_enqueue_scripts', function () {
             wp_dequeue_style('classic-theme-styles'); // Remove unnecessary classic theme styles 
-            
+
             if (!is_user_logged_in()) wp_deregister_style('dashicons'); // Remove dashicons for logged-out users
         }, 100);
 
@@ -143,7 +151,6 @@ class LocalProTheme {
         remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10); // Relational Link Tags (prev/next post)
 
     }
-
 }
 
 LocalProTheme::get_instance();

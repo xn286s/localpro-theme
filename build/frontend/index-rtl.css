@@ -1,15 +1,13 @@
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/frontend/index.scss ***!
   \************************************************************************************************************************************************************************************************************************************************/
-@charset "UTF-8";
 /*----------------- Subtle Fade Transition Between Pages -----------------*/
 @view-transition {
   navigation: auto;
 }
 /*----------------- Mobile -----------------*/
 @media screen and (max-width: 768px) {
-  .wp-block-heading,
-  .wp-block-paragraph {
+  .wp-block-heading, .wp-block-paragraph {
     text-align: center !important;
   }
   .lead-form {
@@ -22,17 +20,13 @@
     transition-delay: 0ms !important;
   }
 }
+/*----------------- Mobile -----------------*/
 html {
   scroll-behavior: smooth;
   overflow-wrap: break-word;
   font-size: 62.5%;
-  accent-color: var(--wp--preset--color--complementary);
 }
-header {
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-}
-/*----------------- Material Symbol Icons -----------------*/
+/*----------------- Material Icons -----------------*/
 .material-symbols-outlined {
   font-family: var(--wp--preset--font-family--icons);
   font-weight: normal;
@@ -50,13 +44,13 @@ header {
   font-feature-settings: "liga";
   -webkit-font-feature-settings: "liga";
 }
-/*----------------- List marker icon styles -----------------*/
+/*----------------- Material Icons -----------------*/
+/*----------------- List Marker Icon -----------------*/
 .is-style-icon-list {
   list-style: none !important;
 }
 .is-style-icon-list li {
   position: relative;
-  padding-right: 0;
   display: flex;
   align-items: center;
 }
@@ -80,6 +74,7 @@ header {
   text-rendering: optimizeLegibility;
   color: var(--icon-color, currentColor);
 }
+/*----------------- List Marker Icon -----------------*/
 /*----------------- Shape Divider -----------------*/
 .wp-block-localpro-shape-divider {
   width: 100%;
@@ -97,12 +92,13 @@ header {
   margin: 0;
   padding: 0;
 }
-.wp-block-localpro-shape-divider.shape-divider-position-top {
+.wp-block-localpro-shape-divider.shape-divider-top {
   margin-bottom: 0;
 }
-.wp-block-localpro-shape-divider.shape-divider-position-bottom {
+.wp-block-localpro-shape-divider.shape-divider-bottom {
   margin-top: 0;
 }
+/*----------------- Shape Divider -----------------*/
 /*----------------- Scroll Reveal Animation -----------------*/
 .reveal {
   opacity: 0;
@@ -136,7 +132,8 @@ header {
     transition: none;
   }
 }
-/*----------------- Theme Styles -----------------*/
+/*----------------- Scroll Reveal Animation -----------------*/
+/*----------------- Utility Classes -----------------*/
 .is-preheading {
   font-size: var(--wp--preset--font-size--label);
   font-weight: 500;
@@ -160,6 +157,7 @@ header {
   position: sticky;
   top: 0;
 }
+/*----------------- Utility Classes -----------------*/
 /*----------------- Service Post Query Loop Styles -----------------*/
 .wp-block-post.service {
   overflow: hidden;
@@ -183,44 +181,4 @@ header {
   position: absolute;
   z-index: 2;
 }
-.marquee {
-  width: 100%;
-  position: relative;
-  /* clips the track here — no page scroll */
-  overflow: hidden;
-  /* Fade out the track at the edges */
-  -webkit-mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-}
-.marquee .track {
-  /* grows as wide as all logos need */
-  width: -moz-max-content;
-  width: max-content;
-  animation: scroll 20s linear infinite;
-  will-change: transform;
-}
-.marquee {
-  /* Reversed variant */
-}
-.marquee .track.reverse {
-  animation-direction: reverse;
-}
-.marquee {
-  /* Pause on hover */
-}
-.marquee:hover .track {
-  animation-play-state: paused;
-}
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    /* exactly one set width */
-    transform: translateX(50%);
-  }
-}
+/*----------------- Service Post Query Loop Styles -----------------*/

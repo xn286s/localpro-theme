@@ -82,27 +82,3 @@ const addControls = createHigherOrderComponent((BlockEdit) => {
     };
 }, 'addControls');
 addFilter('editor.BlockEdit', 'localpro-reveal/add-controls', addControls);
-
-// addFilter(
-//     'blocks.getSaveContent.extraProps',
-//     'localpro-reveal/apply-classes',
-//     (extraProps, attributes) => {
-//         const classes = [];
-
-//         if (attributes.hasReveal) {
-//             classes.push('reveal');
-//             if (attributes.revealDelay > 0) {
-//                 classes.push(`delay-${attributes.revealDelay}`);
-//             }
-//         }
-
-//         if (!classes.length) return extraProps;
-
-//         return {
-//             ...extraProps,
-//             className: [extraProps.className, ...classes]
-//                 .filter(Boolean)
-//                 .join(' '),
-//         };
-//     }
-// );

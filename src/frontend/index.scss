@@ -6,9 +6,13 @@
 /*----------------- Mobile -----------------*/
 @media screen and (max-width: 768px) {
 
-    .wp-block-heading,
-    .wp-block-paragraph {
-        text-align: center !important;
+    .wp-block {
+
+        &-heading,
+        &-paragraph {
+            text-align: center !important;
+        }
+
     }
 
     .lead-form {
@@ -23,19 +27,15 @@
     }
 }
 
+/*----------------- Mobile -----------------*/
+
 html {
     scroll-behavior: smooth;
     overflow-wrap: break-word;
     font-size: 62.5%;
-    accent-color: var(--wp--preset--color--complementary);
 }
 
-header {
-    z-index: 1000;
-    transition: transform 0.3s ease-in-out;
-}
-
-/*----------------- Material Symbol Icons -----------------*/
+/*----------------- Material Icons -----------------*/
 .material-symbols-outlined {
     font-family: var(--wp--preset--font-family--icons);
     font-weight: normal;
@@ -54,13 +54,14 @@ header {
     -webkit-font-feature-settings: "liga";
 }
 
-/*----------------- List marker icon styles -----------------*/
+/*----------------- Material Icons -----------------*/
+
+/*----------------- List Marker Icon -----------------*/
 .is-style-icon-list {
     list-style: none !important;
 
     li {
         position: relative;
-        padding-left: 0;
         display: flex;
         align-items: center;
 
@@ -87,6 +88,8 @@ header {
     }
 }
 
+/*----------------- List Marker Icon -----------------*/
+
 /*----------------- Shape Divider -----------------*/
 .wp-block-localpro-shape-divider {
     width: 100%;
@@ -105,15 +108,17 @@ header {
         padding: 0;
     }
 
-    &.shape-divider-position-top {
+    &.shape-divider-top {
         margin-bottom: 0;
     }
 
-    &.shape-divider-position-bottom {
+    &.shape-divider-bottom {
         margin-top: 0;
     }
 
 }
+
+/*----------------- Shape Divider -----------------*/
 
 /*----------------- Scroll Reveal Animation -----------------*/
 .reveal {
@@ -156,34 +161,42 @@ header {
     }
 }
 
-/*----------------- Theme Styles -----------------*/
+/*----------------- Scroll Reveal Animation -----------------*/
+
+/*----------------- Utility Classes -----------------*/
 .is-preheading {
     font-size: var(--wp--preset--font-size--label);
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
 
+    // Remove default margin from direct sibling heading block to prevent unwanted spacing
     +.wp-block-heading {
         margin-top: 0;
     }
 }
 
-.is-glass--dark {
-    backdrop-filter: blur(4px);
-    background-color: rgba(0, 0, 0, 0.33);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
+.is-glass {
 
-.is-glass--light {
-    backdrop-filter: blur(4px);
-    background-color: rgba(255, 255, 255, 0.33);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    &--dark {
+        backdrop-filter: blur(4px);
+        background-color: rgba(0, 0, 0, 0.33);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    &--light {
+        backdrop-filter: blur(4px);
+        background-color: rgba(255, 255, 255, 0.33);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 }
 
 .is-sticky {
     position: sticky;
     top: 0;
 }
+
+/*----------------- Utility Classes -----------------*/
 
 /*----------------- Service Post Query Loop Styles -----------------*/
 .wp-block-post.service {
@@ -215,49 +228,4 @@ header {
 
 }
 
-.marquee {
-    width: 100%;
-    position: relative;
-
-    /* clips the track here — no page scroll */
-    overflow: hidden;
-
-    /* Fade out the track at the edges */
-    -webkit-mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-
-    .track {
-        // display: flex;
-        /* grows as wide as all logos need */
-        width: max-content;
-        animation: scroll 20s linear infinite;
-        will-change: transform;
-    }
-
-    /* Reversed variant */
-    .track.reverse {
-        animation-direction: reverse;
-    }
-
-    /* Pause on hover */
-    &:hover .track {
-        animation-play-state: paused;
-    }
-
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        /* exactly one set width */
-        transform: translateX(-50%);
-    }
-
-}
+/*----------------- Service Post Query Loop Styles -----------------*/

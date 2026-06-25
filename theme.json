@@ -79,7 +79,7 @@
             ]
         },
         "custom": {
-            "hue": "270"
+            "hue": "225"
         },
         "layout": {
             "contentSize": "1280px",
@@ -249,15 +249,7 @@
                 }
             },
             "core/list": {
-                "css": "width: fit-content",
-                "spacing": {
-                    "padding": {
-                        "left": "2rem"
-                    }
-                },
-                "typography": {
-                    "lineHeight": "1"
-                }
+                "css": "width: fit-content"
             },
             "core/navigation": {
                 "spacing": {

@@ -1,6 +1,6 @@
-/*!***********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor/editor.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor/index.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
 /* ========================================================================== */
 /* Certain frontend styles within the editor canvas */
 /* ========================================================================== */
@@ -14,17 +14,13 @@
     margin-top: 0 !important;
   }
 }
+/*----------------- Mobile -----------------*/
 html {
   scroll-behavior: smooth;
   overflow-wrap: break-word;
   font-size: 62.5%;
-  accent-color: var(--wp--preset--color--primary);
 }
-header {
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-}
-/*----------------- Theme Styles -----------------*/
+/*----------------- Utility Classes -----------------*/
 .is-preheading {
   font-size: var(--wp--preset--font-size--label);
   font-weight: 500;
@@ -48,32 +44,43 @@ header {
   position: sticky;
   top: 0;
 }
+/*----------------- Utility Classes -----------------*/
 /*----------------- Service Post Query Loop Styles -----------------*/
 .wp-block-post.service {
   overflow: hidden;
 }
-.wp-block-post.service img {
-  transition: transform 0.5s ease;
+.wp-block-post.service:hover {
+  box-shadow: var(--wp--preset--shadow--lifted);
 }
 .wp-block-post.service:hover img {
   transform: scale(1.25);
 }
-.wp-block-post.service:hover {
-  box-shadow: var(--wp--preset--shadow--lifted);
+.wp-block-post.service img {
+  transition: transform 0.5s ease;
 }
+.wp-block-post.service .wp-block-cover__inner-container {
+  position: static;
+  z-index: 1;
+}
+.wp-block-post.service .wp-block-cover__inner-container .wp-block-post-title a::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 2;
+}
+/*----------------- Service Post Query Loop Styles -----------------*/
 /*----------------- List Marker Icon -----------------*/
-.wp-block-list.is-style-icon-list {
+.is-style-icon-list {
   list-style: none !important;
 }
-.wp-block-list.is-style-icon-list li.wp-block-list-item {
+.is-style-icon-list li {
   position: relative;
-  padding-right: 0;
   display: flex;
   align-items: center;
 }
-.wp-block-list.is-style-icon-list li.wp-block-list-item::before {
+.is-style-icon-list li::before {
   content: var(--icon, "circle");
-  margin-left: 0.15em;
+  margin-left: 0.25em;
   font-family: var(--wp--preset--font-family--icons) !important;
   font-weight: normal;
   font-style: normal;
@@ -92,7 +99,8 @@ header {
   text-rendering: optimizeLegibility;
   color: var(--icon-color, #000000);
 }
-/*----------------- Shape Divider block. -----------------*/
+/*----------------- List Marker Icon -----------------*/
+/*----------------- Shape Divider -----------------*/
 .wp-block-localpro-shape-divider {
   min-height: 20px;
 }
@@ -104,6 +112,8 @@ header {
   display: block;
   width: 100%;
 }
+/*----------------- Shape Divider -----------------*/
+/*----------------- Material Icons -----------------*/
 .material-symbols-outlined {
   font-family: var(--wp--preset--font-family--icons) !important;
   font-weight: normal;
@@ -120,9 +130,14 @@ header {
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
 }
+/*----------------- Material Icons -----------------*/
 /*==========================================================================
-    Inspector styles for the Icon Picker Grid. 
+    Control styles for the Icon Picker Modal
 ==========================================================================*/
+.localpro-icon-modal .components-modal__content {
+  width: 480px;
+  max-width: 90vw;
+}
 .localpro-icon-picker-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -162,7 +177,7 @@ header {
 .localpro-icon-picker-grid__item.is-selected .material-symbols-outlined {
   color: #fff;
 }
-.localpro-icon-picker-grid__item .material-symbols-outlined {
+.localpro-icon-picker-grid .material-symbols-outlined {
   display: block;
   overflow: hidden;
 }
@@ -173,4 +188,3 @@ header {
   font-style: italic;
   padding: 16px 0;
 }
-/*----------------- Shape Divider block. -----------------*/

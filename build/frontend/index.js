@@ -2,6 +2,96 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/frontend/counter.js"
+/*!*********************************!*\
+  !*** ./src/frontend/counter.js ***!
+  \*********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NumberCounter)
+/* harmony export */ });
+function NumberCounter() {
+  const counters = document.querySelectorAll(".counter");
+  if (!counters.length) return;
+  if (!("IntersectionObserver" in window)) {
+    // fallback — just run immediately
+    counters.forEach(startCounter);
+    return;
+  }
+  const counterObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounter(entry.target);
+        obs.unobserve(entry.target); // run once
+      }
+    });
+  }, {
+    threshold: 0.5 // triggers when 50% visible
+  });
+  counters.forEach(counter => counterObserver.observe(counter));
+  function startCounter(counter) {
+    const target = +counter.getAttribute("data-target");
+    const duration = 1600;
+    const startTime = performance.now();
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(progress);
+      const current = Math.floor(target * eased);
+      counter.textContent = current.toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target.toLocaleString();
+      }
+    }
+    requestAnimationFrame(update);
+  }
+}
+
+/***/ },
+
+/***/ "./src/frontend/scroll-reveal.js"
+/*!***************************************!*\
+  !*** ./src/frontend/scroll-reveal.js ***!
+  \***************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ScrollReveal)
+/* harmony export */ });
+function ScrollReveal() {
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  if (!("IntersectionObserver" in window)) {
+    // fallback — just run immediately
+    reveals.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const scrollRevealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        scrollRevealObserver.unobserve(entry.target); // animate once
+      }
+    });
+  }, {
+    threshold: 0.1,
+    // trigger when 10% visible
+    rootMargin: '0px 0px -40px 0px' // slight bottom offset
+  });
+  reveals.forEach(el => scrollRevealObserver.observe(el));
+}
+
+/***/ },
+
 /***/ "./src/frontend/index.scss"
 /*!*********************************!*\
   !*** ./src/frontend/index.scss ***!
@@ -47,6 +137,23 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -67,85 +174,92 @@ var __webpack_exports__ = {};
   \*******************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/frontend/index.scss");
+/* harmony import */ var _scroll_reveal_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scroll-reveal.js */ "./src/frontend/scroll-reveal.js");
+/* harmony import */ var _counter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./counter.js */ "./src/frontend/counter.js");
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
+  ScrollReveal();
+  NumberCounter();
+
   // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  if (!reveals.length) return;
-  if (!("IntersectionObserver" in window)) {
-    // fallback — just run immediately
-    reveals.forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-  const scrollRevealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        scrollRevealObserver.unobserve(entry.target); // animate once
-      }
-    });
-  }, {
-    threshold: 0.1,
-    // trigger when 10% visible
-    rootMargin: '0px 0px -40px 0px' // slight bottom offset
-  });
-  reveals.forEach(el => scrollRevealObserver.observe(el));
+  // const reveals = document.querySelectorAll('.reveal');
+  // if (!reveals.length) return;
+
+  // if (!("IntersectionObserver" in window)) {
+  //     // fallback — just run immediately
+  //     reveals.forEach(el => el.classList.add('is-visible'));
+
+  //     return;
+  // }
+
+  // const scrollRevealObserver = new IntersectionObserver(
+  //     (entries) => {
+  //         entries.forEach((entry) => {
+  //             if (entry.isIntersecting) {
+  //                 entry.target.classList.add('is-visible');
+  //                 scrollRevealObserver.unobserve(entry.target); // animate once
+  //             }
+  //         });
+  //     },
+  //     {
+  //         threshold: 0.1,   // trigger when 10% visible
+  //         rootMargin: '0px 0px -40px 0px', // slight bottom offset
+  //     }
+  // );
+
+  // reveals.forEach((el) => scrollRevealObserver.observe(el));
 
   // Number Counter
-  const counters = document.querySelectorAll(".counter");
-  if (!counters.length) return;
-  if (!("IntersectionObserver" in window)) {
-    // fallback — just run immediately
-    counters.forEach(startCounter);
-    return;
-  }
-  const counterObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startCounter(entry.target);
-        obs.unobserve(entry.target); // run once
-      }
-    });
-  }, {
-    threshold: 0.5 // triggers when 50% visible
-  });
-  counters.forEach(counter => counterObserver.observe(counter));
-  function startCounter(counter) {
-    const target = +counter.getAttribute("data-target");
-    const duration = 1600;
-    const startTime = performance.now();
-    function easeOutCubic(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
-    function update(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOutCubic(progress);
-      const current = Math.floor(target * eased);
-      counter.textContent = current.toLocaleString();
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = target.toLocaleString();
-      }
-    }
-    requestAnimationFrame(update);
-  }
+  // const counters = document.querySelectorAll(".counter");
+  // if (!counters.length) return;
 
-  // Header hide on scroll
-  const header = document.querySelector('header');
-  let lastScrollY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY) {
-      header.style.position = 'sticky';
-      header.style.top = '0';
-      header.style.transform = 'translateY(-100%)'; // Scrolling down — hide header
-    } else {
-      header.style.transform = 'translateY(0)'; // Scrolling up — reveal header
-    }
-    lastScrollY = currentScrollY;
-  });
+  // if (!("IntersectionObserver" in window)) {
+  //     // fallback — just run immediately
+  //     counters.forEach(startCounter);
+  //     return;
+  // }
+
+  // const counterObserver = new IntersectionObserver((entries, obs) => {
+  //     entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+  //             startCounter(entry.target);
+  //             obs.unobserve(entry.target); // run once
+  //         }
+  //     });
+  // }, {
+  //     threshold: 0.5 // triggers when 50% visible
+  // });
+
+  // counters.forEach(counter => counterObserver.observe(counter));
+
+  // function startCounter(counter) {
+  //     const target = +counter.getAttribute("data-target");
+  //     const duration = 1600;
+  //     const startTime = performance.now();
+
+  //     function easeOutCubic(t) {
+  //         return 1 - Math.pow(1 - t, 3);
+  //     }
+
+  //     function update(now) {
+  //         const elapsed = now - startTime;
+  //         const progress = Math.min(elapsed / duration, 1);
+  //         const eased = easeOutCubic(progress);
+  //         const current = Math.floor(target * eased);
+
+  //         counter.textContent = current.toLocaleString();
+
+  //         if (progress < 1) {
+  //             requestAnimationFrame(update);
+  //         } else {
+  //             counter.textContent = target.toLocaleString();
+  //         }
+  //     }
+
+  //     requestAnimationFrame(update);
+  // }
 });
 })();
 

@@ -15,19 +15,15 @@
     }
 }
 
+/*----------------- Mobile -----------------*/
+
 html {
     scroll-behavior: smooth;
     overflow-wrap: break-word;
     font-size: 62.5%;
-    accent-color: var(--wp--preset--color--primary);
 }
 
-header {
-    z-index: 1000;
-    transition: transform 0.3s ease-in-out;
-}
-
-/*----------------- Theme Styles -----------------*/
+/*----------------- Utility Classes -----------------*/
 .is-preheading {
     font-size: var(--wp--preset--font-size--label);
     font-weight: 500;
@@ -38,6 +34,7 @@ header {
         margin-top: 0;
     }
 }
+
 
 .is-glass--dark {
     backdrop-filter: blur(4px);
@@ -56,36 +53,51 @@ header {
     top: 0;
 }
 
+/*----------------- Utility Classes -----------------*/
+
 /*----------------- Service Post Query Loop Styles -----------------*/
 .wp-block-post.service {
     overflow: hidden;
+
+    &:hover {
+        box-shadow: var(--wp--preset--shadow--lifted);
+
+        img {
+            transform: scale(1.25);
+        }
+    }
+
+    img {
+        transition: transform .5s ease;
+    }
+
+    .wp-block-cover__inner-container {
+        position: static;
+        z-index: 1;
+
+        .wp-block-post-title a::after {
+            content: "";
+            inset: 0;
+            position: absolute;
+            z-index: 2;
+        }
+    }
 }
 
-.wp-block-post.service img {
-    transition: transform .5s ease;
-}
-
-.wp-block-post.service:hover img {
-    transform: scale(1.25);
-}
-
-.wp-block-post.service:hover {
-    box-shadow: var(--wp--preset--shadow--lifted);
-}
+/*----------------- Service Post Query Loop Styles -----------------*/
 
 /*----------------- List Marker Icon -----------------*/
-.wp-block-list.is-style-icon-list {
+.is-style-icon-list {
     list-style: none !important;
 
-    li.wp-block-list-item {
+    li {
         position: relative;
-        padding-left: 0;
         display: flex;
         align-items: center;
 
         &::before {
             content: var(--icon, 'circle');
-            margin-right: 0.15em;
+            margin-right: 0.25em;
             font-family: var(--wp--preset--font-family--icons) !important;
             font-weight: normal;
             font-style: normal;
@@ -105,10 +117,11 @@ header {
             color: var(--icon-color, #000000);
         }
     }
-
 }
 
-/*----------------- Shape Divider block. -----------------*/
+/*----------------- List Marker Icon -----------------*/
+
+/*----------------- Shape Divider -----------------*/
 .wp-block-localpro-shape-divider {
     min-height: 20px;
 
@@ -123,6 +136,10 @@ header {
     }
 }
 
+
+/*----------------- Shape Divider -----------------*/
+
+/*----------------- Material Icons -----------------*/
 .material-symbols-outlined {
     font-family: var(--wp--preset--font-family--icons) !important;
     font-weight: normal;
@@ -140,9 +157,16 @@ header {
     font-feature-settings: 'liga';
 }
 
+/*----------------- Material Icons -----------------*/
+
 /*==========================================================================
-    Inspector styles for the Icon Picker Grid. 
+    Control styles for the Icon Picker Modal
 ==========================================================================*/
+.localpro-icon-modal .components-modal__content {
+    width: 480px;
+    max-width: 90vw;
+}
+
 .localpro-icon-picker-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -184,11 +208,11 @@ header {
                 color: #fff;
             }
         }
+    }
 
-        .material-symbols-outlined {
-            display: block;
-            overflow: hidden;
-        }
+    .material-symbols-outlined {
+        display: block;
+        overflow: hidden;
     }
 
     &__empty {
@@ -199,18 +223,3 @@ header {
         padding: 16px 0;
     }
 }
-
-/*----------------- Shape Divider block. -----------------*/
-// .wp-block-localpro-shape-divider {
-//     min-height: 20px;
-
-//     &.is-selected {
-//         outline: 2px solid var(--wp-admin-theme-color, #007cba);
-//         outline-offset: 2px;
-//     }
-
-//     svg {
-//         display: block;
-//         width: 100%;
-//     }
-// }

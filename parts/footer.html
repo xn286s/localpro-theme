@@ -1,79 +1,56 @@
-<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|tint"}}}},"backgroundColor":"contrast","textColor":"tint","layout":{"type":"constrained"}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"0","right":"0","left":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|tint"}}}},"backgroundColor":"contrast","textColor":"tint","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-tint-color has-contrast-background-color has-text-color has-background has-link-color"
-    style="padding-bottom:0"><!-- wp:columns {"verticalAlignment":"top"} -->
+    style="padding-right:0;padding-bottom:0;padding-left:0"><!-- wp:columns {"verticalAlignment":"top"} -->
     <div class="wp-block-columns are-vertically-aligned-top">
         <!-- wp:column {"verticalAlignment":"top","layout":{"type":"constrained"}} -->
         <div class="wp-block-column is-vertically-aligned-top">
-            <!-- wp:paragraph {"align":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"700"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base","fontFamily":"display"} -->
+            <!-- wp:paragraph {"className":"has-white-color has-text-color has-link-color has-display-font-family","style":{"typography":{"fontStyle":"normal","fontWeight":"700","textAlign":"left"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base"} -->
             <p class="has-text-align-left has-white-color has-text-color has-link-color has-display-font-family has-base-font-size"
                 style="font-style:normal;font-weight:700">Who We Are</p>
             <!-- /wp:paragraph -->
 
             <!-- wp:site-logo {"width":256} /-->
 
-            <!-- wp:paragraph {"align":"left"} -->
-            <p class="has-text-align-left">[Variation of Google Business Profile description]</p>
+            <!-- wp:paragraph {"style":{"typography":{"textAlign":"left"}}} -->
+            <p class="has-text-align-left">[Variation of GBP description]</p>
             <!-- /wp:paragraph -->
-
-            <!-- wp:social-links {"iconColor":"surface","iconColorValue":"hsl(240, 5%, 95%)","openInNewTab":true,"size":"has-normal-icon-size","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"2rem"}}},"layout":{"type":"flex","justifyContent":"left","flexWrap":"nowrap"}} -->
-            <ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only">
-                <!-- wp:social-link {"service":"facebook"} /-->
-
-                <!-- wp:social-link {"service":"instagram"} /-->
-
-                <!-- wp:social-link {"service":"linkedin"} /-->
-
-                <!-- wp:social-link {"service":"yelp"} /-->
-
-                <!-- wp:social-link {"service":"linkedin"} /-->
-            </ul>
-            <!-- /wp:social-links -->
         </div>
         <!-- /wp:column -->
 
         <!-- wp:column {"verticalAlignment":"top","layout":{"type":"constrained","justifyContent":"left"}} -->
         <div class="wp-block-column is-vertically-aligned-top">
-            <!-- wp:paragraph {"align":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"700"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base","fontFamily":"display"} -->
+            <!-- wp:paragraph {"className":"has-white-color has-text-color has-link-color has-display-font-family","style":{"typography":{"fontStyle":"normal","fontWeight":"700","textAlign":"left"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base"} -->
             <p class="has-text-align-left has-white-color has-text-color has-link-color has-display-font-family has-base-font-size"
                 style="font-style:normal;font-weight:700">Contact Us</p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:list {"className":"is-style-icon-list","selectedIcon":"place","iconColor":"hsl(240, 20%, 50%)"} -->
-            <ul style="--icon:'place';--icon-color:hsl(240, 20%, 50%);--icon-size:1.75em"
-                class="wp-block-list is-style-icon-list"><!-- wp:list-item -->
-                <li>123 Yellowbrick Rd</li>
-                <!-- /wp:list-item -->
-            </ul>
-            <!-- /wp:list -->
+            <!-- wp:paragraph -->
+            <p><span style="font-size: 1.5em; line-height: 1; vertical-align: middle;"
+                    class="material-symbols-outlined">location_on</span> GBP Address</p>
+            <!-- /wp:paragraph -->
 
-            <!-- wp:list {"className":"is-style-icon-list","style":{"spacing":{"margin":{"top":"0.8rem"}}},"selectedIcon":"call","iconColor":"hsl(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue), 20%, 50%)"} -->
-            <ul style="margin-top:0.8rem;--icon:'call';--icon-color:hsl(var(--wp--custom--hue), 20%, 50%);--icon-size:1.75em"
-                class="wp-block-list is-style-icon-list"><!-- wp:list-item -->
-                <li><a href="tel:5555555555" target="_blank" rel="noreferrer noopener">555-555-5555</a></li>
-                <!-- /wp:list-item -->
-            </ul>
-            <!-- /wp:list -->
+            <!-- wp:paragraph -->
+            <p><span style="font-size: 1.5em; line-height: 1; vertical-align: middle;"
+                    class="material-symbols-outlined">call</span> <a href="tel:+1XXXXXXXXXX">XXX-XXX-XXXX</a></p>
+            <!-- /wp:paragraph -->
 
-            <!-- wp:list {"className":"is-style-icon-list","style":{"spacing":{"margin":{"top":"0.8rem"}}},"selectedIcon":"mail","iconColor":"hsl(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue), 20%, 50%)"} -->
-            <ul style="margin-top:0.8rem;--icon:'mail';--icon-color:hsl(var(--wp--custom--hue), 20%, 50%);--icon-size:1.75em"
-                class="wp-block-list is-style-icon-list"><!-- wp:list-item -->
-                <li><a href="mailto:hello@yourbusiness.com" target="_blank"
-                        rel="noreferrer noopener">hello@yourbusiness.com</a></li>
-                <!-- /wp:list-item -->
-            </ul>
-            <!-- /wp:list -->
+            <!-- wp:paragraph -->
+            <p><span style="font-size: 1.5em; line-height: 1; vertical-align: middle;"
+                    class="material-symbols-outlined">mail</span> <a href="mailto:hello@yourbusiness.com"
+                    target="_blank" rel="noreferrer noopener">you@yourbusiness.com</a></p>
+            <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
 
         <!-- wp:column {"verticalAlignment":"top","layout":{"type":"constrained","justifyContent":"left"}} -->
         <div class="wp-block-column is-vertically-aligned-top">
-            <!-- wp:paragraph {"align":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"700"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base","fontFamily":"display"} -->
+            <!-- wp:paragraph {"className":"has-white-color has-text-color has-link-color has-display-font-family","style":{"typography":{"fontStyle":"normal","fontWeight":"700","textAlign":"left"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base"} -->
             <p class="has-text-align-left has-white-color has-text-color has-link-color has-display-font-family has-base-font-size"
                 style="font-style:normal;font-weight:700">Business Hours</p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:list {"className":"is-style-icon-list","style":{"spacing":{"margin":{"top":"0.8rem"}}},"selectedIcon":"schedule","iconSize":"2em","iconColor":"hsl(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue), 20%, 50%)"} -->
-            <ul style="margin-top:0.8rem;--icon:'schedule';--icon-color:hsl(var(--wp--custom--hue), 20%, 50%);--icon-size:2em"
+            <!-- wp:list {"className":"is-style-icon-list","style":{"spacing":{"padding":{"left":"0"}}},"selectedIcon":"schedule","iconSize":"2em","iconColor":"hsl(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue), 20%, 75%)"} -->
+            <ul style="padding-left:0;--icon:'schedule';--icon-color:hsl(var(--wp--custom--hue), 20%, 75%);--icon-size:2em"
                 class="wp-block-list is-style-icon-list"><!-- wp:list-item -->
                 <li>Monday: Open 24 Hours</li>
                 <!-- /wp:list-item -->
@@ -108,42 +85,46 @@
 
         <!-- wp:column {"verticalAlignment":"top","layout":{"type":"constrained","justifyContent":"left"}} -->
         <div class="wp-block-column is-vertically-aligned-top">
-            <!-- wp:paragraph {"align":"left","style":{"typography":{"fontStyle":"normal","fontWeight":"700"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base","fontFamily":"display"} -->
+            <!-- wp:paragraph {"className":"has-white-color has-text-color has-link-color has-display-font-family","style":{"typography":{"fontStyle":"normal","fontWeight":"700","textAlign":"left"},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"base"} -->
             <p class="has-text-align-left has-white-color has-text-color has-link-color has-display-font-family has-base-font-size"
                 style="font-style:normal;font-weight:700">Service Area</p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:list {"className":"is-style-icon-list","style":{"spacing":{"margin":{"top":"0.8rem"}}},"selectedIcon":"near_me","iconSize":"2em","iconColor":"hsl(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue), 20%, 50%)"} -->
-            <ul style="margin-top:0.8rem;--icon:'near_me';--icon-color:hsl(var(--wp--custom--hue), 20%, 50%);--icon-size:2em"
-                class="wp-block-list is-style-icon-list"><!-- wp:list-item -->
-                <li>List of</li>
-                <!-- /wp:list-item -->
-
-                <!-- wp:list-item -->
-                <li>Google</li>
-                <!-- /wp:list-item -->
-
-                <!-- wp:list-item -->
-                <li>Business</li>
-                <!-- /wp:list-item -->
-
-                <!-- wp:list-item -->
-                <li>Profile</li>
-                <!-- /wp:list-item -->
-
-                <!-- wp:list-item -->
-                <li>Service</li>
-                <!-- /wp:list-item -->
-
-                <!-- wp:list-item -->
-                <li>Areas</li>
-                <!-- /wp:list-item -->
-            </ul>
-            <!-- /wp:list -->
+            <!-- wp:html -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d894559.5548799073!2d-83.33795918490112!3d28.85751380809443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e80cd51b085c7d%3A0xb945502a70834282!2sCitrus%20County%2C%20FL!5e0!3m2!1sen!2sus!4v1781818697999!5m2!1sen!2sus"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- /wp:html -->
         </div>
         <!-- /wp:column -->
     </div>
     <!-- /wp:columns -->
+
+    <!-- wp:columns -->
+    <div class="wp-block-columns"><!-- wp:column {"layout":{"type":"constrained"}} -->
+        <div class="wp-block-column">
+            <!-- wp:social-links {"iconColor":"tint","iconColorValue":"hsl(var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dhue), 20%, 75%)","openInNewTab":true,"size":"has-huge-icon-size","align":"center","className":"is-style-logos-only","style":{"spacing":{"blockGap":{"left":"2rem"}}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap"}} -->
+            <ul class="wp-block-social-links aligncenter has-huge-icon-size has-icon-color is-style-logos-only">
+                <!-- wp:social-link {"service":"youtube"} /-->
+
+                <!-- wp:social-link {"service":"facebook"} /-->
+
+                <!-- wp:social-link {"service":"instagram"} /-->
+
+                <!-- wp:social-link {"service":"linkedin"} /-->
+
+                <!-- wp:social-link {"service":"yelp"} /-->
+            </ul>
+            <!-- /wp:social-links -->
+        </div>
+        <!-- /wp:column -->
+    </div>
+    <!-- /wp:columns -->
+
+    <!-- wp:spacer {"height":"4rem"} -->
+    <div style="height:4rem" aria-hidden="true" class="wp-block-spacer"></div>
+    <!-- /wp:spacer -->
 
     <!-- wp:columns {"isStackedOnMobile":false,"style":{"border":{"top":{"color":"var:preset|color|shade","width":"1px"},"right":[],"bottom":[],"left":[]},"spacing":{"margin":{"top":"2.5rem"}}}} -->
     <div class="wp-block-columns is-not-stacked-on-mobile"
@@ -156,7 +137,8 @@
         <!-- /wp:column -->
 
         <!-- wp:column {"layout":{"type":"constrained","justifyContent":"right"}} -->
-        <div class="wp-block-column"><!-- wp:paragraph {"align":"right","fontSize":"small"} -->
+        <div class="wp-block-column">
+            <!-- wp:paragraph {"style":{"typography":{"textAlign":"right"}},"fontSize":"small"} -->
             <p class="has-text-align-right has-small-font-size"><a href="/privacy-policy/">Privacy Policy</a></p>
             <!-- /wp:paragraph -->
         </div>
